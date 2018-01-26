@@ -1,17 +1,21 @@
 import createHashHistory from "history/createHashHistory";
 // import {Provider} from "react-redux";
-import {Store} from "redux";
+import {createStore, Store} from "redux";
 // import {Router} from "react-router";
 import * as ReactDOM from "react-dom";
 import * as React from "react";
 import {Router} from "react-router";
 import {Provider} from "react-redux";
+import {MainLayout} from "./scenes/Layouts/MainLayout";
 // import * as Router from "react-router";
 
 const history = createHashHistory();
+const store = createStore((state, action) => {
+    return state
+});
 
 ReactDOM.render(
-    <Provider store={Store}>
+    <Provider store={store}>
         <Router history={history}>
             <MainLayout>
 
