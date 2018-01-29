@@ -1,5 +1,5 @@
 import * as React from "react";
-import {UnLoggedNavBar} from "./Header/components/UnLoggedNavBar";
+import UnLoggedNavBar from "./Header/containers/UnLoggedNavBar";
 import {UnLoggedFooter} from "./Footer/components/UnLoggedFooter";
 
 export class UnLoggedLayout extends React.Component<{},{}>{
