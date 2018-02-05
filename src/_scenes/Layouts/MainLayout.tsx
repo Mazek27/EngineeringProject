@@ -1,7 +1,7 @@
 import * as React from "react";
 import {UnLoggedLayout} from "./UnLoggedLayout";
 import {LoggedLayout} from "./LoggedLayout";
-import {store} from "../../_helpers/store";
+import {CalendarWrapper} from "../../_components/Calendar/components/CalendarWrapper";
 
 interface IProps {
     isLogged : boolean;
@@ -11,10 +11,14 @@ interface IProps {
 export const MainLayout = ({isLogged, children} : IProps) => {
     if(isLogged){
         return <LoggedLayout>
+            {/*<MapContainer/>*/}
+            <CalendarWrapper/>
             {children}
         </LoggedLayout>
     } else {
         return <UnLoggedLayout>
+            {/*<MapContainer/>*/}
+            <CalendarWrapper/>
             {children}
         </UnLoggedLayout>
     }

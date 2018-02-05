@@ -12,7 +12,6 @@ interface IProps {
 }
 
 export const UnLoggedNavBar = ({toggle, lang} : IProps) => {
-    let a =0;
     return <NavBar>
 
         <Nav className="ml-auto" navbar>
