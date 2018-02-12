@@ -8,27 +8,35 @@ export namespace StoreState {
     export type Session = {
         user : any
         isLogged : any
-        // token : string
-        // language : string
     }
 
     export type LoginModal = {
-        username : string,
-        password : string,
+        username : string
+        password : string
         isOpen : boolean
-
     }
 
     export type Language = {
-        lang : any;
+        lang : any
+    }
+
+    export type Calendar = {
+        isPending : boolean
+        dsChecked : boolean
+        date : {
+            data : any[]
+            month : number
+            year : number
+        }
     }
 
 
     export type All = {
-        navBar : NavBar,
-        session : Session,
-        loginModal : LoginModal,
+        navBar : NavBar
+        session : Session
+        loginModal : LoginModal
         translate : Language
+        calendar : Calendar
     }
 
 }

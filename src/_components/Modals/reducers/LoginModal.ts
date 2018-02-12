@@ -1,8 +1,5 @@
 import {StoreState} from "../../../types";
 
-import * as actions from "../../../_helpers/session.action"
-import {store} from "../../../_helpers/store";
-
 const initialState = {
     username : "",
     password : "",

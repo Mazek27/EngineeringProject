@@ -4,10 +4,12 @@ import {LoggedFooter} from "./Footer/components/LoggedFooter";
 
 export class LoggedLayout extends React.Component<{},{}>{
     render() {
-        return <div>
+        return <>
             <LoggedNavBar/>
+            <div  className={"container-fluid"} style={{maxWidth : "1000px"}}>
             {this.props.children}
+            </div>
             <LoggedFooter/>
-        </div>
+        </>
     }
 }

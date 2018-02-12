@@ -20,7 +20,7 @@
 }
 
 .calendar tbody td {
-    padding: .5em 1em;
+    /*padding: .5em 1em;*/
     text-align: center;
     border: 1px solid #e6e6e6;
 }
@@ -34,6 +34,38 @@
     box-sizing: border-box;
 }
 
+.calendar-cell{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 52px;
+}
+
+.calendar-label {
+    z-index: 1;
+    position: absolute;
+    top: 3px;
+    color: #666;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1;
+    left: 1px;
+    width: 16px;
+    text-align: center;
+}
+
+.calendar-td {
+    position: relative;
+    border: 1px solid #e6e6e6;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: #fff;
+}
+
 .calendar tbody td:hover {
     background: #cacaca;
     color: #fff;
@@ -44,8 +76,8 @@
 }
 .prev-month,
 .next-month {
-    color: #cacaca;
-    min-weight: 52px;
+    opacity: .35;
+    min-wight: 52px;
 }
 
 .current-month {

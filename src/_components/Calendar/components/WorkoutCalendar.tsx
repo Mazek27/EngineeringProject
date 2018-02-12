@@ -1,17 +1,22 @@
 import * as React from "react";
 import "./styles/calendar.css"
+import {CellCalendar} from "./CellCalendar";
+import ReactLoading from "react-loading"
 
 interface IProps{
     lang : any;
-    year : number;
-    month : number;
+    date : {
+        year : number;
+        month : number;
+    }
+    isPending: boolean
 }
 
 
 
-function generateDays(year : number, month : number){
-    let today = new Date(year, month, 0);
-    let startDayOfWeek = new Date();
+function generateDays(date : {year : number; month: number}){
+    let today = new Date(date.year, date.month, 1);
+    let startDayOfWeek = new Date(date.year, date.month, 1);
     startDayOfWeek.setDate(today.getDate() - today.getDate() +1);
     let current = new Date(today.getFullYear(), today.getMonth()+1, 0)
     let prev = new Date(today.getFullYear(), today.getMonth(), 0);
@@ -42,39 +47,40 @@ export class WorkoutCalendar extends React.Component<IProps,{}>{
     render() {
 
 
-        let {lang} = this.props;
-        let days = generateDays(2018,3)
+        let {lang, date, isPending} = this.props;
+        let days = generateDays(date)
+
+        if(isPending){
+            return <div className={"mx-auto my-auto"}>
+                <ReactLoading type={"spin"} color={'#212529'} />
+            </div>
+        }
 
 
         return <div className={"col-xs-12 col-md-9"}>
-            <table className={"calendar"} role={"grid"}>
-                <thead>
-                <tr>
-                    {lang.short_days
-                        .map((day: any) => {
-                            return <td>{day}</td>
-                        })
-                    }
-                </tr>
-                </thead>
-                <tbody>
-                {days
-                    .map(week => {
-                        return <tr>
-                            {week.map(day => {
-                                switch(day.day){
-                                    case 'p' :
-                                        return <td className={"prev-month"}>{day.number}</td>;
-                                    case 'c' :
-                                        return <td className={"curr-month"}>{day.number}</td>;
-                                    case 'n' :
-                                        return <td className={"next-month"}>{day.number}</td>;
-                                }
-                            })}
-                        </tr>
-                    })}
-                </tbody>
-            </table>
+            <div className={"calendar"}>
+                <table className={"calendar-table"} role={"grid"}>
+                    <thead>
+                    <tr>
+                        {lang.short_days
+                            .map((day: any) => {
+                                return <td>{day}</td>
+                            })
+                        }
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {days
+                        .map(week => {
+                            return <tr>
+                                {week.map(day => {
+                                    return <CellCalendar day={day} trainings={[1,2,3,4,5,6]}/>
+                                })}
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
     }
 }

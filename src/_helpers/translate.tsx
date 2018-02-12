@@ -29,7 +29,9 @@ export const languages: { [key: string]: any } = {
         },
         calendar: {
             sidepanel: {
-                layout: "Układ strony"
+                layout: "Układ strony",
+                dailysummary: "Dzienne podsumowanie",
+                calendar: "Kalendarz"
             },
             short_days: [
                 "Pon",
@@ -93,6 +95,11 @@ export const languages: { [key: string]: any } = {
             }
         },
         calendar: {
+            sidepanel: {
+                layout: "Layout",
+                dailysummary: "",
+                calendar: ""
+            },
             short_days: [
                 "",
                 "",

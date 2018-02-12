@@ -4,10 +4,12 @@ import {UnLoggedFooter} from "./Footer/components/UnLoggedFooter";
 
 export class UnLoggedLayout extends React.Component<{},{}>{
     render() {
-        return <div>
+        return <>
             <UnLoggedNavBar/>
+            <div className={"container"}>
             {this.props.children}
+            </div>
             <UnLoggedFooter/>
-        </div>
+        </>
     }
 }

@@ -13,7 +13,7 @@ interface IProps{
 }
 
 export const LoggedNavBar = ({lang} : IProps) => {
-    return <NavBar>
+    return <NavBar >
         <Nav className="ml-auto" navbar>
             <UncontrolledDropdown nav>
                     <DropdownToggle size="sm" nav caret>
