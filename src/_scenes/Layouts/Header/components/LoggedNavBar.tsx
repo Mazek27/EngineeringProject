@@ -1,12 +1,14 @@
 import * as React from "react";
 import {
-    Collapse, NavbarToggler, Nav, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle,
-    UncontrolledNavDropdown
+    Nav,
+    UncontrolledDropdown,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle,
 } from "reactstrap";
 import {NavLink} from "react-router-dom";
 import NavBar from "../containers/NavBar";
 import NavItem from "reactstrap/lib/NavItem";
-import {store, translator} from "../../../../_helpers/store";
 
 interface IProps{
     lang : any

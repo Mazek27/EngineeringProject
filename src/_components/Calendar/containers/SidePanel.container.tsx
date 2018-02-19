@@ -1,13 +1,12 @@
 import {connect, Dispatch} from "react-redux";
-import {SidePanelCalendar} from "../components/SidePanelCalendar";
-import * as actions from "../actions/SidePanelCalendar";
+import {SidePanel} from "../components/SidePanel";
+import * as actions from "../actions/SidePanel.action";
 
 function mapStateToProps({lang, calendar} : any){
     return {
         lang : lang.lang.calendar,
         dsChecked : calendar.dsChecked,
-        month : calendar.month,
-        year : calendar.year,
+        currentDate : calendar.currentDate,
         isPending : calendar.isPending
     }
 }
@@ -15,8 +14,8 @@ function mapStateToProps({lang, calendar} : any){
 function mapDispatchToProps(dispatch : Dispatch<actions.SidePanelCalendarAction>){
     return {
         dsChange : () => dispatch(actions.dailySummaryToggleChange()),
-        dateWorkoutCalendarChange : (e : any, month : number, year : number ) => dispatch(actions.dateWorkoutCalendarChange(e, month, year)),
+        dateWorkoutCalendarChange : (e : any, date : Date) => dispatch(actions.dateWorkoutCalendarChange(e, date)),
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(SidePanelCalendar);
+export default connect(mapStateToProps,mapDispatchToProps)(SidePanel);

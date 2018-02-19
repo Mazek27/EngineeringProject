@@ -1,7 +1,7 @@
 import * as React from "react";
 import {UnLoggedLayout} from "./UnLoggedLayout";
 import {LoggedLayout} from "./LoggedLayout";
-import {CalendarWrapper} from "../../_components/Calendar/components/CalendarWrapper";
+import {CalendarWrapper} from "../../_components/Calendar/components/Wrapper";
 
 interface IProps {
     isLogged : boolean;

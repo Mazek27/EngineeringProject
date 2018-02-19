@@ -1,8 +1,6 @@
 import {connect, Dispatch} from "react-redux";
 import * as actions from "../../../../_components/Modals/actions/LoginModalAction";
 import {UnLoggedNavBar} from "../components/UnLoggedNavBar";
-import {translator} from "../../../../_helpers/store";
-import {language} from "../../../../_components/LanguageChanger/reducers/LanguageChanger";
 
 function mapStateToProps({lang} :any) {
     return {

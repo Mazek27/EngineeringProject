@@ -16,8 +16,3 @@ export const store = createStore<StoreState.All>(
         promiseMiddleware()
     )
 );
-
-export const translator = () : any => {
-    let state = store.getState();
-    return state.translate;
-}

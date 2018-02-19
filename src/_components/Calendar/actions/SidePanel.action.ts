@@ -6,7 +6,8 @@ interface DailySummaryToggleChange {
 
 interface DateWorkoutCalendarChange {
     type : "WORKOUT_CALENDAR_DATE_CHANGE",
-    payload: Promise<any>
+    payload: Promise<any>,
+    date : Date
 }
 
 export type SidePanelCalendarAction = DailySummaryToggleChange | DateWorkoutCalendarChange;
@@ -17,9 +18,10 @@ export function dailySummaryToggleChange() : DailySummaryToggleChange {
     }
 }
 
-export function dateWorkoutCalendarChange(e : any, month : number, year: number) : DateWorkoutCalendarChange {
+export function dateWorkoutCalendarChange(e : any, date : Date) : DateWorkoutCalendarChange {
     return {
         type: "WORKOUT_CALENDAR_DATE_CHANGE",
-        payload : getTreningsForCurrentDate(month,  year)
+        payload : getTreningsForCurrentDate(date),
+        date : date
     }
 }

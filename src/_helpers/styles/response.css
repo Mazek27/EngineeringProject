@@ -1,0 +1,6 @@
+.bug {
+    height: 25px;
+    width: 25px;
+    background: url("../icons/bug-256.png") no-repeat center;
+    background-size: 25px 25px;
+}

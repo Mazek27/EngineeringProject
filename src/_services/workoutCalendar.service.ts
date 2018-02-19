@@ -2,7 +2,7 @@ import * as actions from "../_helpers/session.action";
 import {serverUrl} from "../_helpers/constant";
 import {store} from "../_helpers/store";
 
-export function getTreningsForCurrentDate(month: number, year: number) {
+export function getTreningsForCurrentDate(date : any) {
     const requestOptions : RequestInit = {
         method: 'POST',
         headers: {
@@ -11,21 +11,21 @@ export function getTreningsForCurrentDate(month: number, year: number) {
             'Content-Type': 'application/json-patch+json',
         },
         body: JSON.stringify({
-            Month : month,
-            Year : year
+            currentDate : date
         })
     };
 
     // store.dispatch()
 
-    return fetch(`${serverUrl}training/date`, requestOptions)
+    return fetch(`${serverUrl}trainings`, requestOptions)
         .then(response => {
-            if(!response.ok) {
+            if (!response.ok) {
                 throw Error(response.statusText)
             }
             // store.dispatch(actions.login())
             return Promise.resolve(response.json())
-        }).catch(error => {
+        })
+        .catch(error => {
             return Promise.reject(error)
         })
     // new Promise<any>(resolve =>

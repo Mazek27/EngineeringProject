@@ -9,9 +9,8 @@ interface IProps{
     dsChecked : boolean
     dsChange : () => void
     isPending : boolean
-    month: any
-    year: any
-    dateWorkoutCalendarChange : (e : any,  month : number, year : number ) => void
+    currentDate : Date
+    dateWorkoutCalendarChange : (e : any,  date : Date ) => void
 }
 
 function generateYears(){
@@ -23,33 +22,35 @@ function generateYears(){
     return tmp;
 }
 
-export const SidePanelCalendar = ({lang, dsChecked, month, year, dsChange, isPending, dateWorkoutCalendarChange} : IProps) => {
+export const SidePanel = ({lang, dsChecked, dsChange, currentDate, isPending, dateWorkoutCalendarChange} : IProps) => {
     let years = generateYears();
+    let currentMonth = currentDate.getMonth()+1;
+    let currentYear = currentDate.getFullYear();
 
     return <div className={"col-sm-12 col-md-3"}>
-        <div className={"d-none d-md-block"}>
+        <div className={"d-none d-md-block m-1"}>
             <div className={"sidepanel-divider"}>
                 {lang.sidepanel.layout}
             </div>
         </div>
-        <div className={"d-none d-sm-block"}>
+        <div className={"d-none d-sm-block m-1"}>
             {lang.sidepanel.dailysummary}
             <Toggle disabled={isPending} defaultChecked={dsChecked} onChange={dsChange}/>
         </div>
-        <div className={"d-none d-md-block"}>
+        <div className={"d-none d-md-block m-1"}>
             <div className={"sidepanel-divider"}>
                 {lang.sidepanel.calendar}
             </div>
         </div>
-        <div className={"row"} style={{minHeight : "400px"}}>
-            <select value={month} onChange={(e) => dateWorkoutCalendarChange(e, parseInt(e.target.value), year)}>
+        <div className={"row m-1"}>
+            <select value={currentMonth} onChange={(e) => dateWorkoutCalendarChange(e, new Date(currentYear, parseInt(e.target.value),0))}>
                 {lang.months.map((item : any, index : number) => {
-                    return <option key={index + "" + item} value={index}>{item}</option>
+                    return <option key={index + "" + item} value={index+1}>{item}</option>
                 })}
             </select>
-            <select value={year} onChange={(e) => dateWorkoutCalendarChange(e, month, parseInt(e.target.value))}>
+            <select value={currentYear} onChange={(e) => dateWorkoutCalendarChange(e, new Date(parseInt(e.target.value), currentMonth,0))}>
                 {years.map((item : any, index : number) => {
-                    return <option key={index + "" + item} value={index}>{item}</option>
+                    return <option key={index + "" + item} value={item}>{item}</option>
                 })}
             </select>
         </div>

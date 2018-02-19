@@ -1,3 +1,5 @@
+import {IResposneStatus} from "./_helpers/constant";
+
 export namespace StoreState {
 
     export type NavBar = {
@@ -21,13 +23,10 @@ export namespace StoreState {
     }
 
     export type Calendar = {
-        isPending : boolean
+        responseStatus : IResposneStatus
         dsChecked : boolean
-        date : {
-            data : any[]
-            month : number
-            year : number
-        }
+        currentDate : Date
+        data : {[key : string]: any}[]
     }
 
 

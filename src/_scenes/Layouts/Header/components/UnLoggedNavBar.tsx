@@ -4,7 +4,6 @@ import NavItem from "reactstrap/lib/NavItem";
 import NavBar from "../containers/NavBar";
 import Nav from "reactstrap/lib/Nav";
 import LoginModal from "../../../../_components/Modals/containers/LoginModal";
-import {translator} from "../../../../_helpers/store";
 
 interface IProps {
     toggle : () => void,

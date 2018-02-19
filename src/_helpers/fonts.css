@@ -100,21 +100,21 @@ eo-sport-icon:after{content:"\e90c"}
 .sport-paddle-tennis:before{content:"\e90a"}
 .sport-paragliding:before{content:"\e90b"}
 
-.weather-cloud{background:url(assets/icons/weather/cloud.f7d188eaed3764b9eebcf30471c93e7d.png) no-repeat center center}
-.weather-cloudyrain{background:url(assets/icons/weather/cloudyrain.cb9af22586563d4c9d494f11a4ac3c1c.png) no-repeat center center}
-.weather-cloudysnow{background:url(assets/icons/weather/cloudysnow.195bb24a4af144b8fa04b44b1f87fa62.png) no-repeat center center}
-.weather-fog{background:url(assets/icons/weather/fog.ab55dc7d011c2718b403ae07f98a4100.png) no-repeat center center}
-.weather-ice{background:url(assets/icons/weather/ice.9c89ed9074bed5e40480302d3f021609.png) no-repeat center center}
-.weather-lightning{background:url(assets/icons/weather/lightning.be98a37ca22743add253d173619fae2b.png) no-repeat center center}
-.weather-moon{background:url(assets/icons/weather/moon.9940c5e7e90c40137b1a51eb24aea9bb.png) no-repeat center center}
+/*.weather-cloud{background:url(assets/icons/weather/cloud.f7d188eaed3764b9eebcf30471c93e7d.png) no-repeat center center}*/
+/*.weather-cloudyrain{background:url(assets/icons/weather/cloudyrain.cb9af22586563d4c9d494f11a4ac3c1c.png) no-repeat center center}*/
+/*.weather-cloudysnow{background:url(assets/icons/weather/cloudysnow.195bb24a4af144b8fa04b44b1f87fa62.png) no-repeat center center}*/
+/*.weather-fog{background:url(assets/icons/weather/fog.ab55dc7d011c2718b403ae07f98a4100.png) no-repeat center center}*/
+/*.weather-ice{background:url(assets/icons/weather/ice.9c89ed9074bed5e40480302d3f021609.png) no-repeat center center}*/
+/*.weather-lightning{background:url(assets/icons/weather/lightning.be98a37ca22743add253d173619fae2b.png) no-repeat center center}*/
+/*.weather-moon{background:url(assets/icons/weather/moon.9940c5e7e90c40137b1a51eb24aea9bb.png) no-repeat center center}*/
 
-.weather-partlycloudy-am{background:url(assets/icons/weather/partlycloudy-am.dd0795d78124f24ce448866c8bb8dad5.png) no-repeat center center}
-.weather-partlycloudy-pm{background:url(assets/icons/weather/partlycloudy-pm.5c700e20faffd5a9637564a04e301b8a.png) no-repeat center center}
-.weather-partlyfoggy-am{background:url(assets/icons/weather/partlyfoggy-am.63ed7c929e8c96345bc33be256be2bb4.png) no-repeat center center}
-.weather-partlyfoggy-pm{background:url(assets/icons/weather/partlyfoggy-pm.655ce5be53f94a044ae29ab01e7bc78a.png) no-repeat center center}
-.weather-rain{background:url(assets/icons/weather/rain.2acf87827450f8b9af0cb9d11e512c7e.png) no-repeat center center}
-.weather-snow{background:url(assets/icons/weather/snow.b0f1373b6284a64612ddc4922b215da4.png) no-repeat center center}
-.weather-sunny{background:url(assets/icons/weather/sun.95af056d107ae2e7e7f10081bfd5950a.png) no-repeat center center}
+/*.weather-partlycloudy-am{background:url(assets/icons/weather/partlycloudy-am.dd0795d78124f24ce448866c8bb8dad5.png) no-repeat center center}*/
+/*.weather-partlycloudy-pm{background:url(assets/icons/weather/partlycloudy-pm.5c700e20faffd5a9637564a04e301b8a.png) no-repeat center center}*/
+/*.weather-partlyfoggy-am{background:url(assets/icons/weather/partlyfoggy-am.63ed7c929e8c96345bc33be256be2bb4.png) no-repeat center center}*/
+/*.weather-partlyfoggy-pm{background:url(assets/icons/weather/partlyfoggy-pm.655ce5be53f94a044ae29ab01e7bc78a.png) no-repeat center center}*/
+/*.weather-rain{background:url(assets/icons/weather/rain.2acf87827450f8b9af0cb9d11e512c7e.png) no-repeat center center}*/
+/*.weather-snow{background:url(assets/icons/weather/snow.b0f1373b6284a64612ddc4922b215da4.png) no-repeat center center}*/
+/*.weather-sunny{background:url(assets/icons/weather/sun.95af056d107ae2e7e7f10081bfd5950a.png) no-repeat center center}*/
 .wind-direction{display:inline-block}
 .wind-direction.N{transform:rotateZ(180deg);-webkit-transform:rotateZ(180deg)}
 .wind-direction.NNE{transform:rotateZ(202.5deg);-webkit-transform:rotateZ(202.5deg)}
