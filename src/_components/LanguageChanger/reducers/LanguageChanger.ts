@@ -5,13 +5,24 @@ import {StoreState} from "../../../types";
 //     lang : JSON.parse(sessionStorage.getItem('user')).locale === 'undefine' ? languages["pl_PL"] : JSON.parse(sessionStorage.getItem('user')).locale
 // }
 
+function initState() {
+    let user = localStorage.getItem('user');
+
+    if(user === null){
+        return {
+            lang: languages["en"]
+        }
+    } else {
+        let jsonUser = JSON.parse(user);
+        return {
+            lang: languages[jsonUser.locale]
+        }
+    }
+}
+
 export const language = (state : StoreState.Language, action : any) : StoreState.Language => {
     if(typeof state === 'undefined'){
-        //let ssUser =
-        let user = JSON.parse(localStorage.getItem('user'));
-        return {
-            lang : user.locale === 'undefined' ? languages[user.locale] : languages["pl_PL"]
-        }
+        return initState();
     }
 
     switch(action.type){
@@ -19,8 +30,8 @@ export const language = (state : StoreState.Language, action : any) : StoreState
             return {
                 ...state,
                 lang : languages[action.payload]
-            }
+            };
         default :
             return state;
     }
-}
+};

@@ -1,14 +1,15 @@
 import * as React from "react";
 
 export const languages: { [key: string]: any } = {
-    pl_PL: {
+    pl: {
         loggedNavbar: {
             training: "Trening",
             history: "Historia",
             plan: "Plan Treningowy",
             statistic: "Statystyki",
             challenges: "Rywalizacje",
-            roads: "Trasy"
+            roads: "Trasy",
+            logout: "Wyloguj"
         },
         unloggedNavbar: {
             signIn: "Zaloguj",
@@ -68,14 +69,15 @@ export const languages: { [key: string]: any } = {
 
         }
     },
-    en_US: {
+    en: {
         loggedNavbar: {
             training: "Training",
             history: "History",
             plan: "Training Plan",
             statistic: "Statistics",
             challenges: "Challenges",
-            roads: "Roads"
+            roads: "Roads",
+            logout: "LogOut"
         },
         unloggedNavbar: {
             signIn: "SignIn",

@@ -18,7 +18,7 @@ export function dailySummaryToggleChange() : DailySummaryToggleChange {
     }
 }
 
-export function dateWorkoutCalendarChange(e : any, date : Date) : DateWorkoutCalendarChange {
+export function dateWorkoutCalendarChange(date: Date) : DateWorkoutCalendarChange {
     return {
         type: "WORKOUT_CALENDAR_DATE_CHANGE",
         payload : getTreningsForCurrentDate(date),
