@@ -40,40 +40,37 @@ class Container extends React.Component<IProps,{}>{
     }
 
     render() {
-
-
         let {lang, data, responseStatus} = this.props;
         let displayed_days = generateDays(data);
 
-        if(responseStatus.isRejected || responseStatus.isPending){
-            return <Response isPending={responseStatus.isPending} isRejected={responseStatus.isRejected}/>
-        }
-
-
-        return <div className={"col-xs-12 col-md-9"}>
-            <div className={"calendar"}>
-                <table className={"calendar-table"} role={"grid"}>
-                    <thead>
-                    <tr>
-                        {lang.short_days
-                            .map((day : any) => {
-                                return <td>{day}</td>
-                            })
-                        }
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {displayed_days
-                        .map(week => {
-                            return <tr>
-                                {week.map((data : any) => {
-                                    return <Cell dataSet={data}/>
-                                })}
-                            </tr>
-                        })}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        return(
+            <Response response={responseStatus} style={"col-xs-12 col-md-9"}>
+                <div className={"calendar"}>
+                    <table className={"calendar-table"} role={"grid"}>
+                        <thead>
+                        <tr>
+                            {lang.short_days
+                                .map((day : any) => {
+                                    return <td>{day}</td>
+                                })
+                            }
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {displayed_days
+                            .map((week) => {
+                                return <tr>
+                                    {week.map((data : any) => {
+                                        return <Cell dataSet={data}/>
+                                    })}
+                                </tr>
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+                <div className={"btf-ico btn-prev-month btf-arrow-left"}/>
+                <div className={"btf-ico btn-next-month btf-arrow-right"}/>
+            </Response>
+        )
     }
 }

@@ -9,7 +9,9 @@ function mapStateToProps({session } : any, ownProps : any){
 }
 
 function mapDispatchToProps(){
+    return {
 
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);

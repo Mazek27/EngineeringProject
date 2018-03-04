@@ -54,7 +54,7 @@ export const sidePanel = (state : StoreState.Calendar, action : any) : StoreStat
                     isPending : false,
                     isRejected : true
                 },
-                data : action.payload
+                data : state.data
             };
         default :
             return state;

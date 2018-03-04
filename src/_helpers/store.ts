@@ -12,7 +12,7 @@ export const store = createStore<StoreState.All>(
     rootReducer,
     applyMiddleware(
         thunkMiddleware,
-        loggerMiddleware,
+        // loggerMiddleware,
         promiseMiddleware()
     )
 );

@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Mazek27/SimpleApp#readme",
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap": "^4.0.0",
     "history": "^4.7.2",
     "immutable": "^3.8.2",
     "jquery": "^3.2.1",
