@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./styles/sidepanel.css"
+import "./styles/sidepanel.scss"
 import "react-toggle/style.css"
 import Toggle from "react-toggle";
 import {number} from "prop-types";
@@ -27,9 +27,9 @@ export const SidePanel = ({lang, dsChecked, dsChange, currentDate, isPending, da
     let currentMonth = currentDate.getMonth()+1;
     let currentYear = currentDate.getFullYear();
 
-    return <div className={"col-sm-12 col-md-3"}>
+    return <div className={"col-sm-12 col-md-3 sidepanel"}>
         <div className={"d-none d-md-block m-1"}>
-            <div className={"sidepanel-divider"}>
+            <div className={"divider"}>
                 {lang.sidepanel.layout}
             </div>
         </div>
@@ -38,7 +38,7 @@ export const SidePanel = ({lang, dsChecked, dsChange, currentDate, isPending, da
             <Toggle disabled={isPending} defaultChecked={dsChecked} onChange={dsChange}/>
         </div>
         <div className={"d-none d-md-block m-1"}>
-            <div className={"sidepanel-divider"}>
+            <div className={"divider"}>
                 {lang.sidepanel.calendar}
             </div>
         </div>

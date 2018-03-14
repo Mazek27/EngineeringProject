@@ -6,6 +6,8 @@ import {Provider} from "react-redux";
 import {store} from "./_helpers/store";
 import MainLayout from "./_scenes/Layouts/MainLayout.container";
 
+import "./index.scss";
+
 const history = createHashHistory();
 
 

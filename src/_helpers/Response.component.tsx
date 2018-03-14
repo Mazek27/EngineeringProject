@@ -15,7 +15,7 @@ export class Response extends React.Component<IProps, {}> {
         let {response, children, style} = this.props;
         return (
             <div className={`response-container  ${style}`}>
-                <div className={response.isPending || response.isRejected ? "response-content" : ""}>
+                <div className={response.isPending || response.isRejected ? `response-content` : ``}>
                 {children}
                 </div>
                 {response.isPending || response.isRejected?

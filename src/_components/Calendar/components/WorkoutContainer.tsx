@@ -1,8 +1,9 @@
 import * as React from "react";
-import "./styles/calendar.css"
+import "./styles/calendar.scss"
 import {Cell} from "./Cell";
 import {IResposneStatus} from "../../../_helpers/constant";
 import {Response} from "../../../_helpers/Response.component";
+import {NextContainer, PrevContainer} from "./NavigationContainer";
 
 interface IProps{
     lang : any;
@@ -40,7 +41,7 @@ class Container extends React.Component<IProps,{}>{
     }
 
     render() {
-        let {lang, data, responseStatus} = this.props;
+        let {lang, data, responseStatus, changeMonth} = this.props;
         let displayed_days = generateDays(data);
 
         return(
@@ -68,8 +69,9 @@ class Container extends React.Component<IProps,{}>{
                         </tbody>
                     </table>
                 </div>
-                <div className={"btf-ico btn-prev-month btf-arrow-left"}/>
-                <div className={"btf-ico btn-next-month btf-arrow-right"}/>
+                <NextContainer onClick={changeMonth}/>
+                <PrevContainer onClick={changeMonth}/>
+
             </Response>
         )
     }
