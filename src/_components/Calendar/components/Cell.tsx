@@ -1,37 +1,30 @@
 import * as React from "react";
-import "./styles/cell.css"
 import {Sports} from "../../../_helpers/enums/sports.enum";
 
 interface IProps {
     dataSet : any
 }
 
-interface ITraining {
-
-}
-
 const typeOfDay:{[key : string]: any} = {
     p : " prev-month",
     c : " ",
     n : " next-month"
-}
+};
 
 export const Cell = ({dataSet} : IProps) => {
     let {key, value} = dataSet;
-//+ typeOfDay[day.date.type]}
-    return <td className={"calendar-td"}>
-        <div className={"calendar-label"}>
+    return <td className={"cell"}>
+        <div className={`label ${typeOfDay[value.type]}`}>
             {new Date(key).getDate()}
         </div>
-        {/* calendar-cell */}
 
-        <div className={"calendar-list calendar-cell"}>
+        <div className={"list"}>
             <div className={"d-flex flex-wrap"}>
-                {value.map((item : any) => {
-                    return <div className={`sport-ico ${Sports[item.type]} calendar-list-item`}></div>
+                {value.trainingList.map((item : any) => {
+                    return <div className={`sport-ico ${Sports[item.type]} item`}></div>
                 })}
             </div>
 
         </div>
     </td>;
-}
+};

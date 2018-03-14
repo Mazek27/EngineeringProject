@@ -14,7 +14,7 @@ function mapStateToProps({lang, calendar} : any){
 function mapDispatchToProps(dispatch : Dispatch<actions.SidePanelCalendarAction>){
     return {
         dsChange : () => dispatch(actions.dailySummaryToggleChange()),
-        dateWorkoutCalendarChange : (e : any, date : Date) => dispatch(actions.dateWorkoutCalendarChange(e, date)),
+        dateWorkoutCalendarChange : (e : any, date : Date) => dispatch(actions.dateWorkoutCalendarChange(date)),
     }
 }
 

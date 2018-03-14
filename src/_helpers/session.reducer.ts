@@ -1,30 +1,38 @@
 import {StoreState} from "../types";
 
-const initialState : StoreState.Session = {
-    // language : localStorage.getItem("language") != null ? localStorage.getItem("language") : "en_US",
-    isLogged : localStorage.getItem("authorization") != null,
-    // token : localStorage.getItem("authorization"),
-    user : {}
-};
+function initState() {
+    let user = localStorage.getItem("user");
+    if(user === null){
+        return {
+            isLogged : false,
+            user : null
+        }
+    } else {
+        return {
+            isLogged : true,
+            user : JSON.parse(user)
+        }
+    }
+}
 
 export const session = (state : StoreState.Session, action : any) => {
-     if(typeof state === 'undefined'){
-         return initialState;
-     }
+    if(typeof state === 'undefined'){
+        return initState();
+    }
 
     switch(action.type){
         case 'LOGIN' :
             return {
                 ...state,
-                isLogged: true
-        }
+                isLogged: true,
+            };
 
         case 'LOGOUT' :
             return {
                 ...state,
                 isLogged: false
-            }
+            };
         default :
             return state;
     }
-}
+};

@@ -1,0 +1,34 @@
+.navigation {
+  padding:3px;
+  top: 50%  !important;
+  position: absolute;
+  border-radius: 50%;
+  background-color: black;
+
+  .next {
+    right: 0;
+      .ico {
+        font-weight: 400;
+        font-size: 1.2rem;
+        display: inline-block;
+        color: #fff;
+        background-color: #000;
+        border-radius: 50%;
+        vertical-align: middle;
+        top: 0 !important;
+      }
+  }
+  .prev {
+    left: 0;
+      .ico {
+        font-weight: 400;
+        font-size: 1.2rem;
+        display: inline-block;
+        color: #fff;
+        background-color: #000;
+        border-radius: 50%;
+        vertical-align: middle;
+        top: 0 !important;
+      }
+  }
+}

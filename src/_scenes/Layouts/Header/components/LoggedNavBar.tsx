@@ -11,12 +11,13 @@ import NavBar from "../containers/NavBar";
 import NavItem from "reactstrap/lib/NavItem";
 
 interface IProps{
-    lang : any
+    lang : any,
+    logOut : () => void
 }
 
-export const LoggedNavBar = ({lang} : IProps) => {
+export const LoggedNavBar = ({lang,logOut} : IProps) => {
     return <NavBar >
-        <Nav className="ml-auto" navbar>
+        <Nav className="mr-auto" navbar>
             <UncontrolledDropdown nav>
                     <DropdownToggle size="sm" nav caret>
                         {lang.training}
@@ -50,6 +51,11 @@ export const LoggedNavBar = ({lang} : IProps) => {
                 {/*</Button>*/}
             </NavItem>
         </Nav>
+        <Nav className="ml-auto" navbar>
+            <NavItem>
+                <NavLink className="nav-link" to={"/"} onClick={() => logOut()}>{lang.logout}</NavLink>
+            </NavItem>
+        </Nav>
     </NavBar>
 
-}
+};

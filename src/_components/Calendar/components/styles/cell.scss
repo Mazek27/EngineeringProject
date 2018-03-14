@@ -1,0 +1,48 @@
+.cell {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 52px;
+    border: 1px solid #e6e6e6;
+
+    .label {
+        z-index: 1;
+        position: absolute;
+        top: 3px;
+        color: #666;
+        font-size: .625rem;
+        font-weight: 400;
+        line-height: 1;
+        left: 1px;
+        width: 16px;
+        text-align: center;
+    }
+
+    .list {
+        position: absolute;
+        padding-left: 16px;
+
+        .item {
+            float: left;
+            cursor: pointer;
+            margin: 0 3px 3px 0;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+        }
+
+    }
+}
+
+.sport-ico {
+  display: inline-block;
+  color: #fff;
+  background-color: #000;
+  border-radius: 50%;
+  vertical-align: middle;
+  top: 0 !important;
+}
+
+
+
+

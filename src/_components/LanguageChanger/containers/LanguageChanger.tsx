@@ -2,9 +2,9 @@ import {connect, Dispatch} from "react-redux";
 import {LanguageChanger} from "../components/LanguageChanger";
 import * as actions from "../../LanguageChanger/actions/LanguageChangerAction";
 
-function mapStateToProps() {
+function mapStateToProps({session} : any) {
     return {
-        currentLang : JSON.parse(localStorage.getItem("user")).locale
+        currentLang : session.currentLang
     }
 
 }
