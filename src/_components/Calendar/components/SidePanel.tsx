@@ -10,7 +10,7 @@ interface IProps{
     dsChange : () => void
     isPending : boolean
     currentDate : Date
-    dateWorkoutCalendarChange : (e : any,  date : Date ) => void
+    workoutCalendarDateChange : (e : any,  date : Date ) => void
 }
 
 function generateYears(){
@@ -22,7 +22,7 @@ function generateYears(){
     return tmp;
 }
 
-export const SidePanel = ({lang, dsChecked, dsChange, currentDate, isPending, dateWorkoutCalendarChange} : IProps) => {
+export const SidePanel = ({lang, dsChecked, dsChange, currentDate, isPending, workoutCalendarDateChange} : IProps) => {
     let years = generateYears();
     let currentMonth = currentDate.getMonth()+1;
     let currentYear = currentDate.getFullYear();
@@ -43,12 +43,12 @@ export const SidePanel = ({lang, dsChecked, dsChange, currentDate, isPending, da
             </div>
         </div>
         <div className={"row m-1"}>
-            <select value={currentMonth} onChange={(e) => dateWorkoutCalendarChange(e, new Date(currentYear, parseInt(e.target.value),0))}>
+            <select value={currentMonth} onChange={(e) => workoutCalendarDateChange(e, new Date(currentYear, parseInt(e.target.value),0))}>
                 {lang.months.map((item : any, index : number) => {
                     return <option key={index + "" + item} value={index+1}>{item}</option>
                 })}
             </select>
-            <select value={currentYear} onChange={(e) => dateWorkoutCalendarChange(e, new Date(parseInt(e.target.value), currentMonth,0))}>
+            <select value={currentYear} onChange={(e) => workoutCalendarDateChange(e, new Date(parseInt(e.target.value), currentMonth,0))}>
                 {years.map((item : any, index : number) => {
                     return <option key={index + "" + item} value={item}>{item}</option>
                 })}

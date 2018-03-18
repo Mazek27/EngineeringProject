@@ -18,7 +18,23 @@ export function dailySummaryToggleChange() : DailySummaryToggleChange {
     }
 }
 
-export function dateWorkoutCalendarChange(date: Date) : DateWorkoutCalendarChange {
+export function workoutCalendarDateChange(date: Date) : DateWorkoutCalendarChange {
+    return {
+        type: "WORKOUT_CALENDAR_DATE_CHANGE",
+        payload : getTreningsForCurrentDate(date),
+        date : date
+    }
+}
+
+export function selectNextWorkoutCaledarDate(date: Date) : DateWorkoutCalendarChange {
+    return {
+        type: "WORKOUT_CALENDAR_DATE_CHANGE",
+        payload : getTreningsForCurrentDate(date),
+        date : date
+    }
+}
+
+export function selectPrevWorkoutCaledarDate(date: Date) : DateWorkoutCalendarChange {
     return {
         type: "WORKOUT_CALENDAR_DATE_CHANGE",
         payload : getTreningsForCurrentDate(date),

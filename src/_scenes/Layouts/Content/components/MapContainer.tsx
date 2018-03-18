@@ -3,7 +3,6 @@ import {Map, Marker, Popup, TileLayer} from "react-leaflet";
 import 'leaflet/dist/leaflet.css'
 import * as L from "leaflet";
 import {GeoJsonObject, GeoJsonTypes} from "geojson";
-import {localization1 as tmp} from "./tmp";
 
 interface IProps{
     // lat : number
@@ -98,7 +97,7 @@ export class MapContainer extends React.Component<IProps,{}> {
 
 
     componentDidMount(){
-        let points : cordinate[] = calculateRoute(tmp, {lat : 51.960068, lng : 23.021461});
+        // let points : cordinate[] = calculateRoute(tmp, {lat : 51.960068, lng : 23.021461});
 
         // tmp.sort(function (a : cordinate,b : cordinate) {
         //     return a.lat - b.lat;
@@ -125,13 +124,13 @@ export class MapContainer extends React.Component<IProps,{}> {
                 accessToken: 'your.mapbox.access.token'
             }).addTo(map);
 
-        let line = new L.Polyline(points, {
-            color : 'red',
-            weight: 3,
-            opacity: 0.5,
-            smoothFactor: 1
-        })
-        line.addTo(map);
+        // let line = new L.Polyline(points, {
+        //     color : 'red',
+        //     weight: 3,
+        //     opacity: 0.5,
+        //     smoothFactor: 1
+        // })
+        // line.addTo(map);
 
     }
 

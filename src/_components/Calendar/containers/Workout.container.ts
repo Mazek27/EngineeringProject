@@ -1,6 +1,7 @@
 import {connect, Dispatch} from "react-redux";
 import {WorkoutContainer} from "../components/WorkoutContainer";
 import * as actions from "../actions/SidePanel.action";
+import {store} from "../../../_helpers/store";
 
 function mapStateToProps({lang, calendar} : any){
     return {
@@ -12,8 +13,12 @@ function mapStateToProps({lang, calendar} : any){
 }
 
 function mapDispatchToProps(dispatch : Dispatch<actions.SidePanelCalendarAction>){
+    let date = store.getState().calendar.currentDate
+
     return {
-        changeMonth : (date : Date) => dispatch(actions.dateWorkoutCalendarChange(date))
+        changeMonth: (date : Date) => dispatch(actions.workoutCalendarDateChange(date)),
+        nextMonth : () => dispatch(actions.selectNextWorkoutCaledarDate(new Date(date.setMonth(date.getMonth()+1)))),
+        prevMonth : () => dispatch(actions.selectPrevWorkoutCaledarDate(new Date(date.setMonth(date.getMonth()-1)))),
     }
 }
 
