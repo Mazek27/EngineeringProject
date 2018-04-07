@@ -1,8 +1,6 @@
 import * as React from "react";
 import "./styles/sidepanel.scss"
-import "react-toggle/style.css"
-import Toggle from "react-toggle";
-import {number} from "prop-types";
+import Switch from "material-ui/es/Switch";
 
 interface IProps{
     lang : any
@@ -35,7 +33,7 @@ export const SidePanel = ({lang, dsChecked, dsChange, currentDate, isPending, wo
         </div>
         <div className={"d-none d-sm-block m-1"}>
             {lang.sidepanel.dailysummary}
-            <Toggle disabled={isPending} defaultChecked={dsChecked} onChange={dsChange}/>
+            <Switch disabled={isPending} defaultChecked={dsChecked} onChange={dsChange}/>
         </div>
         <div className={"d-none d-md-block m-1"}>
             <div className={"divider"}>

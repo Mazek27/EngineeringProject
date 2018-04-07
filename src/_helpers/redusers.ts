@@ -1,5 +1,5 @@
 import {combineReducers} from "redux";
-import {StoreState} from "../types";
+import {StoreState} from "./StoreStateTypes";
 import {navBar} from "../_scenes/Layouts/Header/reducers/navBar";
 import {routerReducer} from "react-router-redux";
 import {loginModal} from "../_components/Modals/reducers/LoginModal";

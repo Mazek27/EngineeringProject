@@ -79,4 +79,4 @@ export const Sports = [
     "sport-running-canicross",
     "sport-paddle-tennis",
     "sport-paragliding"
-]
+];

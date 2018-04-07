@@ -1,11 +1,6 @@
 import * as React from "react";
-import {store} from "../../../_helpers/store";
+
 // import * as actions from "../actions/RegisterModalAction";
-import Form from "reactstrap/lib/Form";
-import FormGroup from "reactstrap/lib/FormGroup";
-import Input from "reactstrap/lib/Input";
-import FormFeedback from "reactstrap/lib/FormFeedback";
-import Label from "reactstrap/lib/Label";
 
 interface IProps {
     username : string,

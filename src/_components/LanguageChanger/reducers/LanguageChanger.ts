@@ -1,5 +1,5 @@
 import {languages} from "../../../_helpers/translate";
-import {StoreState} from "../../../types";
+import {StoreState} from "../../../_helpers/StoreStateTypes";
 
 // const initState = {
 //     lang : JSON.parse(sessionStorage.getItem('user')).locale === 'undefine' ? languages["pl_PL"] : JSON.parse(sessionStorage.getItem('user')).locale
