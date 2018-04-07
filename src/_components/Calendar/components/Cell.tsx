@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Sports} from "../../../_helpers/enums/sports.enum";
+import Tooltip from "material-ui/es/Tooltip";
 
 interface IProps {
     dataSet : any
@@ -7,7 +8,7 @@ interface IProps {
 
 const typeOfDay:{[key : string]: any} = {
     p : " prev-month",
-    c : " ",
+    c : "",
     n : " next-month"
 };
 
@@ -21,7 +22,10 @@ export const Cell = ({dataSet} : IProps) => {
         <div className={"list"}>
             <div className={"d-flex flex-wrap"}>
                 {value.trainingList.map((item : any) => {
-                    return <div className={`sport-ico ${Sports[item.type]} item`}></div>
+                    return <div>
+                        <div className={`sport-ico ${Sports[item.type]} item`}></div>
+                        <Tooltip title={"hello"}><div>Hello</div></Tooltip>
+                    </div>
                 })}
             </div>
 

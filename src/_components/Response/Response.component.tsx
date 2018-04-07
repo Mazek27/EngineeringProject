@@ -1,11 +1,10 @@
-import {IResposneStatus} from "./constant";
+import {IResponseStatus} from "../../_helpers/constant";
 import * as React from "react";
 import ReactLoading from "react-loading"
-import "./styles/response.css"
-import {connect} from "react-redux";
+import "../../_helpers/styles/response.css"
 
 interface IProps {
-    response : IResposneStatus,
+    response : IResponseStatus,
     style : any
     // children : any[]
 }

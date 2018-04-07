@@ -1,4 +1,3 @@
-import {store} from "../../../_helpers/store";
 import * as React from "react";
 import {languages} from "../../../_helpers/translate";
 

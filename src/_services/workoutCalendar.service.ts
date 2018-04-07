@@ -1,6 +1,4 @@
-import * as actions from "../_helpers/session.action";
 import {serverUrl} from "../_helpers/constant";
-import {store} from "../_helpers/store";
 
 export function getTreningsForCurrentDate(date : any) {
     const requestOptions : RequestInit = {

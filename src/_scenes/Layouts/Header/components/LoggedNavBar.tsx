@@ -23,17 +23,17 @@ export const LoggedNavBar = ({lang,logOut} : IProps) => {
                         {lang.training}
                     </DropdownToggle>
                     <DropdownMenu >
-                        <DropdownItem>
-                            <NavLink className="nav-link default" to="/training">{lang.training}</NavLink>
+                        <DropdownItem >
+                            <NavLink className="nav-link text-dark default" to="/training">{lang.training}</NavLink>
                         </DropdownItem>
-                        <DropdownItem>
-                            <NavLink className="nav-link"  to="/history">{lang.history}</NavLink>
+                        <DropdownItem disabled>
+                            <NavLink className="nav-link text-dark"  to="/history">{lang.history}</NavLink>
                         </DropdownItem>
-                        <DropdownItem>
-                            <NavLink className="nav-link"  to="/plan">{lang.plan}</NavLink>
+                        <DropdownItem disabled>
+                            <NavLink className="nav-link text-dark"  to="/plan">{lang.plan}</NavLink>
                         </DropdownItem>
-                        <DropdownItem>
-                            <NavLink className="nav-link" to="/statistic">{lang.statistic}</NavLink>
+                        <DropdownItem disabled>
+                            <NavLink className="nav-link text-dark" to="/statistic">{lang.statistic}</NavLink>
                         </DropdownItem>
                     </DropdownMenu>
                 </UncontrolledDropdown>

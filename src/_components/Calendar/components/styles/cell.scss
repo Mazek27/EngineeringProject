@@ -18,6 +18,13 @@
         text-align: center;
     }
 
+    .prev-month,
+    .next-month {
+        opacity: .35;
+    }
+
+
+
     .list {
         position: absolute;
         padding-left: 16px;

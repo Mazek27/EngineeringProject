@@ -1,4 +1,4 @@
-import {StoreState} from "../../../../types";
+import {StoreState} from "../../../../_helpers/StoreStateTypes";
 
 const initialState = {
     isCollapsed : true

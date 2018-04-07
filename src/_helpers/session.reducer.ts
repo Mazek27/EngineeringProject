@@ -1,4 +1,4 @@
-import {StoreState} from "../types";
+import {StoreState} from "./StoreStateTypes";
 
 function initState() {
     let user = localStorage.getItem("user");

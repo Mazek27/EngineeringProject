@@ -1,4 +1,4 @@
-import {IResposneStatus} from "./_helpers/constant";
+import {IResponseStatus} from "./constant";
 
 export namespace StoreState {
 
@@ -23,7 +23,7 @@ export namespace StoreState {
     }
 
     export type Calendar = {
-        responseStatus : IResposneStatus
+        responseStatus : IResponseStatus
         dsChecked : boolean
         currentDate : Date
         data : {[key : string]: any}[]

@@ -1,16 +1,19 @@
 import * as React from "react";
 import "./styles/calendar.scss"
 import {Cell} from "./Cell";
-import {IResposneStatus} from "../../../_helpers/constant";
-import {Response} from "../../../_helpers/Response.component";
+import {IResponseStatus} from "../../../_helpers/constant";
+import {Response} from "../../Response/Response.component";
 import {NextContainer, PrevContainer} from "./NavigationContainer";
+// import {NextContainer, PrevContainer} from "./NavigationContainer";
 
 interface IProps{
     lang : any;
     // currentDate : Date
     data : {[key : string] : any}
-    responseStatus: IResposneStatus
+    responseStatus: IResponseStatus
     changeMonth : (date : Date) => void
+    nextMonth : () => void
+    prevMonth : () => void
 }
 
 
@@ -24,24 +27,25 @@ function generateDays(data : any){
     return tmp;
 }
 
-export const WorkoutContainer = ({lang, data, responseStatus, changeMonth} : IProps) => {
+export const WorkoutContainer = ({lang, data, responseStatus, changeMonth, nextMonth, prevMonth} : IProps) => {
     return <Container
         lang={lang}
         data={data}
         responseStatus={responseStatus}
         changeMonth={changeMonth}
-    />
+        prevMonth={prevMonth}
+        nextMonth={nextMonth}/>
 };
 
 class Container extends React.Component<IProps,{}>{
-    componentDidMount() {
+    componentWillMount() {
         if(this.props.data.length == 0){
             this.props.changeMonth(new Date())
         }
     }
 
     render() {
-        let {lang, data, responseStatus, changeMonth} = this.props;
+        let {lang, data, responseStatus, prevMonth, nextMonth} = this.props;
         let displayed_days = generateDays(data);
 
         return(
@@ -69,8 +73,8 @@ class Container extends React.Component<IProps,{}>{
                         </tbody>
                     </table>
                 </div>
-                <NextContainer onClick={changeMonth}/>
-                <PrevContainer onClick={changeMonth}/>
+                <NextContainer onClick={nextMonth}/>
+                <PrevContainer onClick={prevMonth}/>
 
             </Response>
         )

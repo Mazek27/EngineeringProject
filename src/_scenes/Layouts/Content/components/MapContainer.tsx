@@ -1,9 +1,5 @@
 import * as React from "react";
-import {Map, Marker, Popup, TileLayer} from "react-leaflet";
 import 'leaflet/dist/leaflet.css'
-import * as L from "leaflet";
-import {GeoJsonObject, GeoJsonTypes} from "geojson";
-import {localization1 as tmp} from "./tmp";
 
 interface IProps{
     // lat : number
@@ -11,26 +7,8 @@ interface IProps{
     // zoom : number
 }
 
-interface IState {
-
-}
-
 let styles = {
     height : "400px"
-};
-
-var myLines = [{
-    "type": "LineString",
-    "coordinates": [[-100, 40], [-105, 45], [-110, 55]]
-}, {
-    "type": "LineString",
-    "coordinates": [[-105, 40], [-110, 45], [-115, 55]]
-}];
-
-var myStyle = {
-    "color": "#ff7800",
-    "weight": 5,
-    "opacity": 0.65
 };
 
 
@@ -51,7 +29,7 @@ function distance(from : cordinate, to : cordinate) {
 }
 
 function removeFromArray(array : any[], value : any) {
-    var idx = array.indexOf(value);
+    let idx = array.indexOf(value);
     if (idx !== -1) {
         array.splice(idx, 1);
     }
@@ -98,7 +76,7 @@ export class MapContainer extends React.Component<IProps,{}> {
 
 
     componentDidMount(){
-        let points : cordinate[] = calculateRoute(tmp, {lat : 51.960068, lng : 23.021461});
+        // let points : cordinate[] = calculateRoute(tmp, {lat : 51.960068, lng : 23.021461});
 
         // tmp.sort(function (a : cordinate,b : cordinate) {
         //     return a.lat - b.lat;
@@ -116,22 +94,22 @@ export class MapContainer extends React.Component<IProps,{}> {
         //     return a.lng - b.lng;
         // });
 
-        const map = L.map("map").setView([52.013814, 23.106169], 25);
+        // const map = L.map("map").setView([52.013814, 23.106169], 25);
+        //
+        //     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        //         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        //         maxZoom: 18,
+        //         id: 'mapbox.streets',
+        //         accessToken: 'your.mapbox.access.token'
+        //     }).addTo(map);
 
-            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                maxZoom: 18,
-                id: 'mapbox.streets',
-                accessToken: 'your.mapbox.access.token'
-            }).addTo(map);
-
-        let line = new L.Polyline(points, {
-            color : 'red',
-            weight: 3,
-            opacity: 0.5,
-            smoothFactor: 1
-        })
-        line.addTo(map);
+        // let line = new L.Polyline(points, {
+        //     color : 'red',
+        //     weight: 3,
+        //     opacity: 0.5,
+        //     smoothFactor: 1
+        // })
+        // line.addTo(map);
 
     }
 
