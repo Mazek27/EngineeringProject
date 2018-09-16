@@ -1,17 +1,11 @@
 import {MainLayout} from "./MainLayout";
 import {connect} from "react-redux";
 
-function mapStateToProps({session } : any, ownProps : any){
+function mapStateToProps({session}: any, ownProps: any){
     return {
-        isLogged : session.isLogged,
+        isLogged: session.isLogged,
         children : ownProps.children
     }
 }
 
-function mapDispatchToProps(){
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);
+export default connect(mapStateToProps)(MainLayout);

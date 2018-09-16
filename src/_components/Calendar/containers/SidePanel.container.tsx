@@ -1,6 +1,7 @@
-import {connect, Dispatch} from "react-redux";
+import {connect} from "react-redux";
 import {SidePanel} from "../components/SidePanel";
 import * as actions from "../actions/SidePanel.action";
+import {Dispatch} from "redux";
 
 function mapStateToProps({lang, calendar} : any){
     return {

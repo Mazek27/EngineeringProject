@@ -1,17 +1,14 @@
 import {applyMiddleware, createStore} from "redux";
 import {StoreState} from "./StoreStateTypes";
 import {rootReducer} from "./redusers";
-import thunkMiddleware from "redux-thunk";
 import promiseMiddleware from "redux-promise-middleware";
-import {createLogger} from "redux-logger";
 
 
-const loggerMiddleware = createLogger();
+// const loggerMiddleware = createLogger();
 
-export const store = createStore<StoreState.All>(
+export const store = createStore<StoreState.All, any, any, any>(
     rootReducer,
     applyMiddleware(
-        thunkMiddleware,
         // loggerMiddleware,
         promiseMiddleware()
     )

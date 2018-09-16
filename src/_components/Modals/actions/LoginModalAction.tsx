@@ -1,50 +1,19 @@
-import {login} from "../../../_services/user.service";
+// import {login} from "../../../_services/session.api";
 
 
-interface Toggle {
-    type : "TOGGLE_LOGIN_MODAL"
+import {authenticate} from "../../../_services/session.api";
+
+
+interface Authenticate {
+    type : "AUTHENTICATE",
+    payload : any
 }
 
-interface LogIn {
-    type : "LOG_IN",
-    payload : Promise<any>
-}
+export type LoginModalAction = Authenticate;
 
-export interface UserNameChange {
-    type : "LOGIN_FORM_USER_NAME_CHANGE"
-    payload : string
-}
-
-export interface PasswordChange {
-    type : "LOGIN_FORM_PASSWORD_CHANGE"
-    payload : string
-}
-
-export type LoginModalAction = Toggle | LogIn | UserNameChange | PasswordChange;
-
-export function toggle() : Toggle {
+export function getAuthenticate(username : string, password : string) : Authenticate {
     return {
-        type : "TOGGLE_LOGIN_MODAL"
-    }
-}
-
-export function logIn(username : string, password : string, isLogged : boolean) : LogIn {
-    return {
-        type : "LOG_IN",
-        payload : login(username, password, isLogged)
-    }
-}
-
-export function userNameChange(e : any) : UserNameChange {
-    return {
-        type : "LOGIN_FORM_USER_NAME_CHANGE",
-        payload : e.target.value
-    }
-}
-
-export function passwordChange(e : any) : PasswordChange {
-    return {
-        type : "LOGIN_FORM_PASSWORD_CHANGE",
-        payload : e.target.value
+        type : "AUTHENTICATE",
+        payload : authenticate(username, password)
     }
 }

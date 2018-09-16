@@ -3,11 +3,28 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "keyofStringsOnly": true,
     "module": "commonjs",
     "target": "es2017",
     "jsx": "react"
   },
-  "include": [
-    "./src/**/*"
-  ]
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true,
+    "forkChecker": true,
+    "useCache": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "compileOnSave": true,
+  "buildOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }

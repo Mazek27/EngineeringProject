@@ -1,6 +1,7 @@
-import {connect, Dispatch} from "react-redux";
+import {connect} from "react-redux";
 import {LoggedNavBar} from "../components/LoggedNavBar";
-import * as actions from "../../../../_helpers/session.action"
+import * as actions from "../../../../_services/session/session.action"
+import {Dispatch} from "redux";
 
 function mapStateToProps({lang} :any) {
     return {

@@ -4,9 +4,9 @@ interface LanguageChange {
 }
 
 export function languageChange(e : any) : LanguageChange {
-    let store = JSON.parse(localStorage.getItem('user'));
-    store.locale = e.target.value;
-    localStorage.setItem('user', JSON.stringify(store));
+    // let store = JSON.parse(localStorage.getItem('user'));
+    // store.locale = e.target.value;
+    // localStorage.setItem('user', JSON.stringify(store));
 
     return {
         type : "LANGUAGE_CHANGE",

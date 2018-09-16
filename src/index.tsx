@@ -6,16 +6,16 @@ import {Provider} from "react-redux";
 import {store} from "./_helpers/store";
 import MainLayout from "./_scenes/Layouts/MainLayout.container";
 
-import "./index.scss";
+import "./index.scss"
+import {languages} from "./_helpers/translate";
 
 const history = createHashHistory();
 
-
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={history}>
-            <Route path={'/'} component={MainLayout}/>
-        </Router>
-    </Provider>,
+        <Provider store={store}>
+            <Router history={history}>
+                <Route path={'/'} component={MainLayout}/>
+            </Router>
+        </Provider>,
     document.getElementById("root")
 );

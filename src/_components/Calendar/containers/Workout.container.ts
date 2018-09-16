@@ -1,7 +1,8 @@
-import {connect, Dispatch} from "react-redux";
+import {connect} from "react-redux";
 import {WorkoutContainer} from "../components/WorkoutContainer";
 import * as actions from "../actions/SidePanel.action";
 import {store} from "../../../_helpers/store";
+import {Dispatch} from "redux";
 
 function mapStateToProps({lang, calendar} : any){
     return {

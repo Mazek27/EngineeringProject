@@ -1,7 +1,6 @@
 import {IResponseStatus} from "../../_helpers/constant";
 import * as React from "react";
-import ReactLoading from "react-loading"
-import "../../_helpers/styles/response.css"
+import "../../_helpers/styles/response.scss"
 
 interface IProps {
     response : IResponseStatus,
@@ -19,7 +18,7 @@ export class Response extends React.Component<IProps, {}> {
                 </div>
                 {response.isPending || response.isRejected?
                     <div className={`response mx-auto my-auto`}>
-                        {response.isPending ? <ReactLoading type={"spin"} color={'#212529'} />
+                        {response.isPending ? <div/>
                             : <div className="bug"></div>}
                     </div> :<></> }
 

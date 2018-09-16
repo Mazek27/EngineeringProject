@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Sports} from "../../../_helpers/enums/sports.enum";
-import Tooltip from "material-ui/es/Tooltip";
+import Tooltip from "@material-ui/core/es/Tooltip/Tooltip";
 
 interface IProps {
     dataSet : any

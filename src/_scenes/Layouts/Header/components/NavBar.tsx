@@ -1,29 +1,36 @@
 import * as React from "react";
-import {Navbar, NavbarBrand} from "reactstrap";
-import NavbarToggler from "reactstrap/lib/NavbarToggler";
-import Collapse from "reactstrap/lib/Collapse";
 import {NavLink} from "react-router-dom";
+import AppBar from "@material-ui/core/es/AppBar/AppBar";
+import Toolbar from "@material-ui/core/es/Toolbar/Toolbar";
+import Typography from "@material-ui/core/es/Typography/Typography";
 
 interface IProps{
-    isCollapsed : boolean;
-    toggle : () => void;
     children : any
 }
 
-export const NavBar = ({isCollapsed, toggle, children} : IProps) => {
+export const NavBar = ({children} : IProps) => {
     // let {isOpen, toggle} = this.state;
 
     return <div>
-        <Navbar color="dark" dark expand="md">
-            <NavbarBrand color="gray"><NavLink to={"/home"}>TumakGo</NavLink></NavbarBrand>
+        <AppBar position="static">
+            <Toolbar variant="dense">
+                <Typography variant="title" color="inherit">
+                    Ferr
+                </Typography>
 
-            <NavbarToggler onClick={toggle}/>
-            <Collapse isOpen={isCollapsed} navbar>
                 {children}
-            </Collapse>
-            {/*<Navbar.Collapse>*/}
+            </Toolbar>
+        </AppBar>
+        {/*<Navbar color="dark" dark expand="md">*/}
+            {/*<NavbarBrand color="gray"><NavLink to={"/home"}>TumakGo</NavLink></NavbarBrand>*/}
 
-            {/*</Navbar.Collapse>*/}
-        </Navbar>
+            {/*<NavbarToggler onClick={toggle}/>*/}
+            {/*<Collapse isOpen={isCollapsed} navbar>*/}
+                {/*{children}*/}
+            {/*</Collapse>*/}
+            {/*/!*<Navbar.Collapse>*!/*/}
+
+            {/*/!*</Navbar.Collapse>*!/*/}
+        {/*</Navbar>*/}
     </div>
 }

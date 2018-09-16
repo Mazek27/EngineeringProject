@@ -2,7 +2,7 @@ import * as React from "react";
 
 export const languages: { [key: string]: any } = {
     pl: {
-        loggedNavbar: {
+        loggednavbar: {
             training: "Trening",
             history: "Historia",
             plan: "Plan Treningowy",
@@ -11,7 +11,7 @@ export const languages: { [key: string]: any } = {
             roads: "Trasy",
             logout: "Wyloguj"
         },
-        unloggedNavbar: {
+        unloggednavbar: {
             signIn: "Zaloguj",
             signOut: "Rejestracja"
         },
@@ -79,7 +79,7 @@ export const languages: { [key: string]: any } = {
             roads: "Roads",
             logout: "LogOut"
         },
-        unloggedNavbar: {
+        unloggednavbar: {
             signIn: "SignIn",
             signOut: "SignOut"
         },

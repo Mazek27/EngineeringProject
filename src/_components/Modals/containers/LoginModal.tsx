@@ -1,6 +1,7 @@
-import {connect, Dispatch} from "react-redux";
+import {connect} from "react-redux";
 import {LoginModal} from "../components/LoginModal";
 import * as actions from "../actions/LoginModalAction"
+import {Dispatch} from "redux";
 
 function mapStateToProps({loginModal, lang, session} : any){
     return {
@@ -15,8 +16,8 @@ function mapStateToProps({loginModal, lang, session} : any){
 
 function mapDispachToProps(dispatch : Dispatch<actions.LoginModalAction>){
     return {
-        toggle : () => dispatch(actions.toggle()),
-        logIn : (username : string, password : string, isLogged : boolean) => dispatch(actions.logIn(username, password, isLogged)),
+        // toggle : () => dispatch(actions.toggle()),
+        logIn : (username : string, password : string) => dispatch(actions.getAuthenticate(username, password)),
     }
 }
 

@@ -2,11 +2,6 @@ import {IResponseStatus} from "./constant";
 
 export namespace StoreState {
 
-    export type NavBar = {
-        toggle : () => void
-        isCollapsed : boolean
-    }
-
     export type Session = {
         user : any
         isLogged : any
@@ -31,11 +26,11 @@ export namespace StoreState {
 
 
     export type All = {
-        navBar : NavBar
         session : Session
         loginModal : LoginModal
-        translate : Language
+        lang : Language
         calendar : Calendar
+        routing : any
     }
 
 }

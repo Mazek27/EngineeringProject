@@ -10,21 +10,39 @@ interface IProps {
     children : any[]
 }
 
-export const MainLayout = ({isLogged, children} : IProps) => {
-    if(isLogged){
-        return <LoggedLayout>
-            <Route exact path={"/"}>
-                <Redirect to={"/home"}/>
-            </Route>
-            <Route path={"/home"} component={HomePage}/>
-
-            <Route  path={"/training"} component={WorkoutsPage}/>
-            {/*<Route path={"/history"} component={History}/>*/}
-            {children}
-        </LoggedLayout>
-    } else {
-        return <UnLoggedLayout>
-            {children}
-        </UnLoggedLayout>
+class Translator {
+    constructor(){
+        this.changeLanguage = this.changeLanguage.bind(this)
     }
+    currentLanguage = "pl"
+    changeLanguage(event : any){
+        this.currentLanguage = event.target.value
+    }
+}
+const defaultValue = new Translator()
+
+export const LanguageContext = React.createContext(defaultValue)
+
+export const MainLayout = ({isLogged, children} : IProps) => {
+    let content = isLogged ?
+        (
+            <LoggedLayout>
+                <Route exact path={"/"}>
+                    <Redirect to={"/home"}/>
+                </Route>
+                <Route path={"/home"} component={HomePage}/>
+
+                <Route  path={"/training"} component={WorkoutsPage}/>
+                {/*<Route path={"/history"} component={History}/>*/}
+                {children}
+            </LoggedLayout>
+        ) :
+        (
+            <UnLoggedLayout>
+                {children}
+            </UnLoggedLayout>
+        )
+    return <LanguageContext.Provider value={defaultValue}>
+        {content}
+    </LanguageContext.Provider>
 };

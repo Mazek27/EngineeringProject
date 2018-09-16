@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./styles/sidepanel.scss"
-import Switch from "material-ui/es/Switch";
+import Switch from "@material-ui/core/es/Switch/Switch";
 
 interface IProps{
     lang : any
