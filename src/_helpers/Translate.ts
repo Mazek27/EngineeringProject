@@ -2,7 +2,8 @@ import * as React from "react";
 
 export const languages: { [key: string]: any } = {
     pl: {
-        loggednavbar: {
+        menudrawer: {
+            home: "Strona Gowna",
             training: "Trening",
             history: "Historia",
             plan: "Plan Treningowy",
@@ -12,10 +13,10 @@ export const languages: { [key: string]: any } = {
             logout: "Wyloguj"
         },
         unloggednavbar: {
-            signIn: "Zaloguj",
-            signOut: "Rejestracja"
+            signin: "Zaloguj",
+            signout: "Rejestracja"
         },
-        loginForm: {
+        loginform: {
             header: "Zaloguj",
             username: "Nazwa Użytkownika",
             password: "Hasło",
@@ -27,6 +28,8 @@ export const languages: { [key: string]: any } = {
                 username: "To pole nie może być puste",
                 password: "To pole nie może być puste"
             }
+            ,
+            remember: "Zapamiętaj"
         },
         calendar: {
             sidepanel: {
@@ -70,7 +73,8 @@ export const languages: { [key: string]: any } = {
         }
     },
     en: {
-        loggedNavbar: {
+        menudrawer: {
+            home: "Strona Gowna",
             training: "Training",
             history: "History",
             plan: "Training Plan",
@@ -80,10 +84,10 @@ export const languages: { [key: string]: any } = {
             logout: "LogOut"
         },
         unloggednavbar: {
-            signIn: "SignIn",
-            signOut: "SignOut"
+            signin: "SignIn",
+            signout: "SignOut"
         },
-        loginForm: {
+        loginform: {
             header: "LogIn",
             username: "User Name",
             password: "Password",
@@ -94,7 +98,8 @@ export const languages: { [key: string]: any } = {
             feedback: {
                 username: "",
                 password: ""
-            }
+            },
+            remember: "Stay logged in"
         },
         calendar: {
             sidepanel: {

@@ -1,14 +1,39 @@
 import * as React from "react";
 import {NavLink} from "react-router-dom";
-import NavBar from "../containers/NavBar";
+import NavBar from "../components/NavBar";
+import Avatar from "@material-ui/core/es/Avatar/Avatar";
+import withStyles from "@material-ui/core/es/styles/withStyles";
+import AccountIcon from "@material-ui/icons/AccountCircle";
+import MailIcon from "@material-ui/icons/Mail";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import {withTranslation} from "../../../../_helpers/WithTranslate";
+import Badge from "@material-ui/core/es/Badge/Badge";
 
 interface IProps{
     lang : any,
     logOut : () => void
+    userName : string
+    classes : any
+    pagesToolBarIsOpen : boolean
 }
 
-export const LoggedNavBar = ({lang,logOut} : IProps) => {
-    return <NavBar >
+const styles = {
+    badge : {
+        marginRight : 20
+    }
+}
+
+const LoggedNavBar = ({lang,logOut, userName, classes} : IProps) => {
+    return <NavBar>
+        <Badge badgeContent={12} className={classes.badge} color="secondary">
+            <NotificationsIcon/>
+        </Badge>
+        <Badge badgeContent={3} className={classes.badge} color="secondary">
+            <MailIcon/>
+        </Badge>
+        <Avatar alt={userName}>
+            <AccountIcon/>
+        </Avatar>
         {/*<Nav className="mr-auto" navbar>*/}
             {/*<UncontrolledDropdown nav>*/}
                     {/*<DropdownToggle size="sm" nav caret>*/}
@@ -51,3 +76,5 @@ export const LoggedNavBar = ({lang,logOut} : IProps) => {
     </NavBar>
 
 };
+
+export default withStyles(styles)(withTranslation(LoggedNavBar))

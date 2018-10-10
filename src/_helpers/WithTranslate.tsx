@@ -15,7 +15,7 @@ export interface IWithTranslationProps{
     lang : any
 }
 
-type HOC<PWrapped, PHoc> = React.ComponentClass<PWrapped & PHoc, any> | React.SFC<PWrapped & PHoc>;
+type HOC<PWrapped, PHoc> = React.ComponentClass<PWrapped , PHoc> | React.SFC<PWrapped & PHoc>;
 
 export function withTranslation<P, S>(Component: HOC<P & IWithTranslationProps,any>): React.ComponentClass<P, S>{
     class C extends React.Component<P & IWithTranslationProps, S> {
@@ -33,6 +33,7 @@ export function withTranslation<P, S>(Component: HOC<P & IWithTranslationProps,a
         lang: state.lang.lang
     });
 
+    // @ts-ignore
     return ReactRedux.connect(mapStateToProps)(C);
 }
 

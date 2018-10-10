@@ -1,23 +1,13 @@
-import {StoreState} from "../../_helpers/StoreStateTypes";
+import {StoreState} from "../../../_helpers/StoreStateTypes";
 
-function initState() {
-    let user = localStorage.getItem("user");
-    if(user === null){
-        return {
-            isLogged : false,
-            user : null
-        }
-    } else {
-        return {
-            isLogged : true,
-            user : JSON.parse(user)
-        }
-    }
-}
+const initialState : StoreState.Session = {
+    isLogged : !!localStorage.getItem('user'),
+    user : ""
+};
 
-export const session = (state : StoreState.Session, action : any) => {
+export const loginFormReducer = (state : StoreState.Session, action : any): StoreState.Session => {
     if(typeof state === 'undefined'){
-        return initState();
+        return initialState;
     }
 
     switch(action.type){
@@ -41,4 +31,4 @@ export const session = (state : StoreState.Session, action : any) => {
         default :
             return state
     }
-};
+}

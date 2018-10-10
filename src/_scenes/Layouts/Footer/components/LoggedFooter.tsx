@@ -7,9 +7,9 @@ export class LoggedFooter extends React.Component {
     render(){
         return (
             <div className={"footer"}>
-                <AppBar>
-                    <LanguageChanger/>
-                </AppBar>
+                {/*<AppBar>*/}
+                    {/*<LanguageChanger/>*/}
+                {/*</AppBar>*/}
             </div>
         )
     }

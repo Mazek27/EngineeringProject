@@ -2,7 +2,7 @@ import axios, {AxiosRequestConfig} from "axios";
 import {store} from "../_helpers/store";
 import {logout} from "./session/session.action";
 
-let api_path = "https://pms-model-editor-server.herokuapp.com/service/";
+let api_path = "http://localhost:10000/api/";
 // let api_path = "http://localhost:8081/service/";
 
 export function requestGet(path: string, headers?:{}){
@@ -47,7 +47,7 @@ function execute(requestPromise: Promise<any>): Promise<any> {
 function extendHeadersWithAuthentication(axiosConfig: AxiosRequestConfig) {
     let config : AxiosRequestConfig = {
         headers : {
-
+            'content-type': 'application/json; charset=utf-8 '
         }
     }
     return {

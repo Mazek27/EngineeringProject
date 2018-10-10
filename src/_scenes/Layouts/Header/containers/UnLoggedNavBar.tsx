@@ -1,5 +1,5 @@
 // import {connect} from "react-redux";
-// import * as actions from "../../../../_components/Modals/actions/LoginModalAction";
+// import * as actions from "../../../../_components/Modals/actions/LoginFormAction";
 // import {UnLoggedNavBar} from "../components/UnLoggedNavBar";
 // import {Dispatch} from "redux";
 //
@@ -9,7 +9,7 @@
 //     }
 // }
 //
-// // function mapDispatchToProps(dispatch : Dispatch<actions.LoginModalAction>){
+// // function mapDispatchToProps(dispatch : Dispatch<actions.LoginFormAction>){
 // // }
 //
 // export default connect(mapStateToProps)(UnLoggedNavBar);

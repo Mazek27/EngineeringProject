@@ -9,7 +9,7 @@ interface Authenticate {
     payload : any
 }
 
-export type LoginModalAction = Authenticate;
+export type LoginFormAction = Authenticate;
 
 export function getAuthenticate(username : string, password : string) : Authenticate {
     return {

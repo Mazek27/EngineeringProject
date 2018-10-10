@@ -7,14 +7,12 @@ export namespace StoreState {
         isLogged : any
     }
 
-    export type LoginModal = {
-        username : string
-        password : string
-        isOpen : boolean
-    }
-
     export type Language = {
         lang : any
+    }
+
+    export type MenuDrawer = {
+        isOpen : boolean
     }
 
     export type Calendar = {
@@ -27,7 +25,7 @@ export namespace StoreState {
 
     export type All = {
         session : Session
-        loginModal : LoginModal
+        menuDrawer : MenuDrawer
         lang : Language
         calendar : Calendar
         routing : any

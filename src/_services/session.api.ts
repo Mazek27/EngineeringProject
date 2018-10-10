@@ -5,7 +5,7 @@ import {requestPost} from "./endpointConnection";
 
 
 export function authenticate(userName : string, password : string) {
-    return requestPost(`${serverUrl}users/authenticate`, JSON.stringify({ userName, password }));
+    return requestPost(`users/authenticate`, JSON.stringify({ userName, password }));
     // const requestOptions : RequestInit = {
     //     method: 'POST',
     //     headers: {

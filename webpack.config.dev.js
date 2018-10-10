@@ -30,7 +30,7 @@ const ProgressBarPluginConfig = new ProgressBarPlugin()
 /* Export configuration */
 module.exports = {
     mode: 'development',
-    devtool: 'source-map',
+    devtool: 'cheap-eval-source-map',
     entry: [
         './src/index.tsx'
     ],

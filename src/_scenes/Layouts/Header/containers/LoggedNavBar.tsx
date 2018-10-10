@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
-import {LoggedNavBar} from "../components/LoggedNavBar";
+import LoggedNavBar from "../components/LoggedNavBar";
 import * as actions from "../../../../_services/session/session.action"
 import {Dispatch} from "redux";
 
-function mapStateToProps({lang} :any) {
+function mapStateToProps({session} :any) {
     return {
-        lang : lang.lang.loggedNavbar
+        userName : session.user
     }
 }
 
