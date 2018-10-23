@@ -5,6 +5,7 @@ import {withTranslation} from "../../../../_helpers/WithTranslate"
 import Modal from "@material-ui/core/es/Modal/Modal";
 import LoginForm from "../../../../_components/Modals/components/LoginForm";
 import withStyles from "@material-ui/core/es/styles/withStyles";
+import RegisterForm from "../../../../_components/Modals/components/RegisterForm";
 
 interface IProps {
     lang : any
@@ -12,8 +13,9 @@ interface IProps {
 }
 
 interface IState{
-    loginModalIsOpen : boolean,
-    registerModalIsOpen : boolean
+    [x : string]: boolean
+    // loginModalIsOpen : boolean,
+    // registerModalIsOpen : boolean
 }
 
 const styles = {}
@@ -30,15 +32,14 @@ class UnLoggedNavBar extends React.Component<IProps, IState> {
         }
     }
 
-    changeModalState(modalType : string){
-        switch(modalType){
-            case 'login' : {
-                this.setState({loginModalIsOpen : !this.state['loginModalIsOpen']})
-                break
-            }
-            case 'register' : {
-                this.setState({registerModalIsOpen : !this.state['registerModalIsOpen']})
-                break
+    changeModalState(modalType? : string){
+        if(modalType) {
+            this.setState({[`${modalType}ModalIsOpen`]: !this.state[`${modalType}ModalIsOpen`]})
+        } else {
+            if(this.state['loginModalIsOpen']){
+                this.setState({loginModalIsOpen: !this.state['loginModalIsOpen']})
+            } else if(this.state['registerModalIsOpen']){
+                this.setState({registerModalIsOpen: !this.state['registerModalIsOpen']})
             }
         }
     }
@@ -47,8 +48,9 @@ class UnLoggedNavBar extends React.Component<IProps, IState> {
         const {lang, classes} = this.props;
         return <NavBar>
             <Button color="inherit" onClick={(e) => this.changeModalState("login")}>{lang.signin}</Button>
-            <Modal open={this.state.loginModalIsOpen || this.state.registerModalIsOpen} onClose={(event) => this.changeModalState('login')}>
-                {this.state.loginModalIsOpen ? <LoginForm/> : <></>}
+            <Button color="inherit" onClick={(e) => this.changeModalState("register")}>{lang.signup}</Button>
+            <Modal open={this.state['loginModalIsOpen'] || this.state['registerModalIsOpen']} onClose={(event) => this.changeModalState()}>
+                {this.state['loginModalIsOpen'] ? <LoginForm/> : <RegisterForm/>}
             </Modal>
             {/*<Nav className="ml-auto" navbar>*/}
             {/*<NavItem>*/}

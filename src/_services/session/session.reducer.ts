@@ -2,15 +2,16 @@ import {StoreState} from "../../_helpers/StoreStateTypes";
 
 function initState() {
     let user = localStorage.getItem("user");
-    if(user === null){
-        return {
-            isLogged : false,
-            user : null
-        }
-    } else {
+    console.log(user);
+    if(user){
         return {
             isLogged : true,
             user : JSON.parse(user)
+        }
+    } else {
+        return {
+            isLogged : false,
+            user : null
         }
     }
 }

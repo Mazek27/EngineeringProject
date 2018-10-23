@@ -154,4 +154,4 @@ eo-sport-icon:after{content:"\e90c"}
 .wind-direction.WNW{transform:rotateZ(112.5deg);-webkit-transform:rotateZ(112.5deg)}
 .wind-direction.NW{transform:rotateZ(135deg);-webkit-transform:rotateZ(135deg)}
 .wind-direction.NNW{transform:rotateZ(157.5deg);-webkit-transform:rotateZ(157.5deg)}
-.wind-direction.UNKNOWN{display:none}/*!
+.wind-direction.UNKNOWN{display:none}

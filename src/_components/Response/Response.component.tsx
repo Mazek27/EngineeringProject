@@ -1,6 +1,7 @@
 import {IResponseStatus} from "../../_helpers/constant";
 import * as React from "react";
 import "../../_helpers/styles/response.scss"
+import Grid from "@material-ui/core/es/Grid/Grid";
 
 interface IProps {
     response : IResponseStatus,
@@ -8,11 +9,13 @@ interface IProps {
     // children : any[]
 }
 
+
+
 export class Response extends React.Component<IProps, {}> {
     render(){
         let {response, children, style} = this.props;
         return (
-            <div className={`response-container  ${style}`}>
+            <Grid className={`response-container  ${style}`}>
                 <div className={response.isPending || response.isRejected ? `response-content` : ``}>
                 {children}
                 </div>
@@ -22,7 +25,7 @@ export class Response extends React.Component<IProps, {}> {
                             : <div className="bug"></div>}
                     </div> :<></> }
 
-            </div>
+            </Grid>
         )
 
         // return (

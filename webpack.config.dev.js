@@ -30,7 +30,7 @@ const ProgressBarPluginConfig = new ProgressBarPlugin()
 /* Export configuration */
 module.exports = {
     mode: 'development',
-    devtool: 'cheap-eval-source-map',
+    devtool: 'source-map',
     entry: [
         './src/index.tsx'
     ],
@@ -45,6 +45,14 @@ module.exports = {
                 use: 'awesome-typescript-loader'
             },
             {
+                test: /\.css$/,
+                use: [
+                    "style-loader", // creates style nodes from JS strings
+                    "css-loader", // translates CSS into CommonJS
+                    "postcss-loader" // compiles Sass to CSS, using Node Sass by default
+                ]
+            },
+            {
                 test: /\.scss?$/,
                 use: [
                     "style-loader", // creates style nodes from JS strings
@@ -53,7 +61,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpg)$/,
+                test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
                 loader: 'url-loader'
             }
             // {

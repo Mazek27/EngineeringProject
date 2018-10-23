@@ -4,14 +4,19 @@ import {LoggedFooter} from "./Footer/components/LoggedFooter";
 import "./styles.scss";
 import Grid from "@material-ui/core/es/Grid/Grid";
 import MenuDrawer from "../../_components/Menu/components/MenuDrawer";
+import withStyles from "@material-ui/core/es/styles/withStyles";
 
-const styles = {
-    root: {
-
-    }
+interface IProps {
+    classes : any
 }
 
-export class LoggedLayout extends React.Component<{},{}>{
+const styles = (theme:any)=> ({
+    root: {
+        padding: theme.spacing.unit * 2
+    }
+})
+
+class LoggedLayout extends React.Component<IProps,{}>{
 
     // handleDrawerOpen = () => {
     //     this.setState({ open: true });
@@ -22,11 +27,13 @@ export class LoggedLayout extends React.Component<{},{}>{
     // };
 
     render() {
+        let {classes} = this.props
+
         return (
             <>
                 <LoggedNavBar />
                     <MenuDrawer />
-                    <Grid container spacing={24}>
+                    <Grid container className={classes.root}>
                         {this.props.children}
                     </Grid>
                 <LoggedFooter/>
@@ -34,3 +41,5 @@ export class LoggedLayout extends React.Component<{},{}>{
         )
     }
 }
+
+export default withStyles(styles)(LoggedLayout)

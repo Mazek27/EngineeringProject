@@ -1,7 +1,12 @@
-import * as React from "react";
-
 export const languages: { [key: string]: any } = {
     pl: {
+        historypage: {
+            id: "id",
+            type: "Typ",
+            date: "Data",
+            distance: "Dystans",
+            duration: "Czas"
+        },
         menudrawer: {
             home: "Strona Gowna",
             training: "Trening",
@@ -14,7 +19,8 @@ export const languages: { [key: string]: any } = {
         },
         unloggednavbar: {
             signin: "Zaloguj",
-            signout: "Rejestracja"
+            signout: "Wyloguj",
+            signup: "Rejestracja"
         },
         loginform: {
             header: "Zaloguj",
@@ -22,6 +28,21 @@ export const languages: { [key: string]: any } = {
             password: "Hasło",
             action: {
                 login: "Zaloguj",
+                cancel: "Anuluj"
+            },
+            feedback: {
+                username: "To pole nie może być puste",
+                password: "To pole nie może być puste"
+            }
+            ,
+            remember: "Zapamiętaj"
+        },
+        registerform: {
+            header: "Zarejestruj Się",
+            username: "Nazwa Użytkownika",
+            password: "Hasło",
+            action: {
+                login: "Zarejestruj",
                 cancel: "Anuluj"
             },
             feedback: {
@@ -85,7 +106,8 @@ export const languages: { [key: string]: any } = {
         },
         unloggednavbar: {
             signin: "SignIn",
-            signout: "SignOut"
+            signout: "SignOut",
+            signup: "SignUp"
         },
         loginform: {
             header: "LogIn",

@@ -2,7 +2,7 @@ import axios, {AxiosRequestConfig} from "axios";
 import {store} from "../_helpers/store";
 import {logout} from "./session/session.action";
 
-let api_path = "http://localhost:10000/api/";
+let api_path = "http://192.168.0.19:10000/api/";
 // let api_path = "http://localhost:8081/service/";
 
 export function requestGet(path: string, headers?:{}){
