@@ -1,9 +1,4 @@
 import * as React from "react";
-import IconButton from "@material-ui/core/es/IconButton/IconButton";
-import Toolbar from "@material-ui/core/es/Toolbar/Toolbar";
-import MenuIcon from '@material-ui/icons/Menu';
-import Drawer from "@material-ui/core/es/Drawer/Drawer";
-import classNames = require("classnames");
 import withStyles from "@material-ui/core/es/styles/withStyles";
 
 interface IProps{

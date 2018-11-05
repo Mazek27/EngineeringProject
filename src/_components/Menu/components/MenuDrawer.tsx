@@ -18,13 +18,14 @@ interface IProps{
     handleDrawerClose : () => void
 }
 
+@withTranslation()
 class MenuDrawer extends React.Component<IProps, any>{
     render() {
         let {lang, handleDrawerClose, pagesToolBarIsOpen} = this.props;
         const sites = [
             'home',
             '-',
-            'training',
+            'workouts',
             'history',
             'plan',
             'statistic',
@@ -34,7 +35,7 @@ class MenuDrawer extends React.Component<IProps, any>{
         ]
         const siteComponents = sites.map((value, index) => {
             if(value == "-"){
-                return <Divider/>
+                return <Divider key={index}/>
             }
             return (
                 <ListItem button key={index}>
@@ -75,4 +76,4 @@ function mapDispachToProps(dispatch : Dispatch<actions.MenuDrawerActions>){
     }
 }
 //@ts-ignore
-export default connect(mapStateToProps, mapDispachToProps)(withTranslation(MenuDrawer))
+export default connect(mapStateToProps, mapDispachToProps)(MenuDrawer)

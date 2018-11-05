@@ -1,9 +1,9 @@
 import axios, {AxiosRequestConfig} from "axios";
 import {store} from "../_helpers/store";
 import {logout} from "./session/session.action";
+import * as Cookies from "js-cookie";
 
 let api_path = "http://192.168.0.19:10000/api/";
-// let api_path = "http://localhost:8081/service/";
 
 export function requestGet(path: string, headers?:{}){
     return execute(
@@ -32,14 +32,12 @@ export function requestDelete(path: string, headers?:{}){
 function execute(requestPromise: Promise<any>): Promise<any> {
     return requestPromise
         .then(response => {
-            if(response.status == 401){
-                store.dispatch(logout)
-            } else {
-                return Promise.resolve(response.data)
-            }
+            return Promise.resolve(response.data)
         })
-        .catch(()=>{
-
+        .catch(({response})=>{
+            if(response.status == 401) {
+                store.dispatch(logout())
+            }
         })
 
 }
@@ -50,7 +48,8 @@ function extendHeadersWithAuthentication(axiosConfig: AxiosRequestConfig) {
             'content-type': 'application/json; charset=utf-8 '
         }
     }
+    let authorization = Cookies.get("Authorization")
     return {
         ...config,
-        headers : { ...config.headers , Authorization : localStorage.getItem("authorization")}}
+        headers : { ...config.headers , Authorization : authorization}}
 }

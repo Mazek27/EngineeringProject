@@ -1,12 +1,12 @@
 import {StoreState} from "../../_helpers/StoreStateTypes";
+import * as Cookies from "js-cookie";
 
 function initState() {
-    let user = localStorage.getItem("user");
-    console.log(user);
-    if(user){
+    let user = Cookies.get("User");
+    if(user && Cookies.get("Authorization")){
         return {
             isLogged : true,
-            user : JSON.parse(user)
+            user : user
         }
     } else {
         return {
@@ -17,14 +17,16 @@ function initState() {
 }
 
 export const session = (state : StoreState.Session, action : any) => {
-    if(typeof state === 'undefined'){
+    if(!state){
         return initState();
     }
 
     switch(action.type){
         case "AUTHENTICATE_FULFILLED" : {
             let response = action.payload
-            localStorage.setItem('user', JSON.stringify(action.payload));
+            Cookies.set("Authorization", `Bearer ${response.token}`, {expires : response.expiration});
+            Cookies.set("User", response.name)
+            Cookies.set("locale", response.locale)
 
             return {
                 ...state,
@@ -33,11 +35,21 @@ export const session = (state : StoreState.Session, action : any) => {
             }
         }
         case "AUTHENTICATE_REJECTED" : {
-            localStorage.setItem('user', JSON.stringify(action.payload));
+            Cookies.remove("user")
+            Cookies.remove("Authorization")
 
             return {
                 ...state,
             }
+        }
+        case "LOGOUT" : {
+            return {
+                ...state,
+                isLogged : false,
+                user : null
+            }
+
+
         }
         default :
             return state

@@ -4,7 +4,7 @@ import LoggedLayout from "./LoggedLayout";
 import {Redirect, Route} from "react-router";
 import {WorkoutsPage} from "./Content/Pages/WorkoutsPage";
 import HomePage from "./Content/Pages/HomePage";
-import HistoryPage from "./Content/Pages/HistoryPage";
+import {HistoryPage} from "./Content/Pages/HistoryPage";
 
 interface IProps {
     isLogged : boolean;
@@ -17,7 +17,7 @@ export const MainLayout = ({isLogged, children} : IProps) => {
             <LoggedLayout>
 
                 <Route path={"/home"} component={HomePage}/>
-                <Route path={"/training"} component={WorkoutsPage}/>
+                <Route path={"/workouts"} component={WorkoutsPage}/>
                 <Route path={"/history"} component={HistoryPage}/>
                 {/*<Route path={"/"}>*/}
                     {/*<Redirect to={"/home"}/>*/}

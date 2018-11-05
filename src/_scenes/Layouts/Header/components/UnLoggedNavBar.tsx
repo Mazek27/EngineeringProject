@@ -22,7 +22,7 @@ const styles = {}
 
 
 
-
+@withTranslation()
 class UnLoggedNavBar extends React.Component<IProps, IState> {
     constructor(props : any){
         super(props)
@@ -66,6 +66,6 @@ class UnLoggedNavBar extends React.Component<IProps, IState> {
 }
 
 
-export default withStyles(styles)(withTranslation(UnLoggedNavBar))
+export default withStyles(styles)(UnLoggedNavBar)
 // export default Component
 // export default <WithTranslate WrappedComponent={Component}/>

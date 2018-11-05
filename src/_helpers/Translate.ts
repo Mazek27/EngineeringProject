@@ -9,7 +9,7 @@ export const languages: { [key: string]: any } = {
         },
         menudrawer: {
             home: "Strona Gowna",
-            training: "Trening",
+            workouts: "Treningi",
             history: "Historia",
             plan: "Plan Treningowy",
             statistic: "Statystyki",
@@ -21,6 +21,10 @@ export const languages: { [key: string]: any } = {
             signin: "Zaloguj",
             signout: "Wyloguj",
             signup: "Rejestracja"
+        },
+        loggednavbar: {
+            signout: "Wyloguj",
+            myaccount: "Moje Konto"
         },
         loginform: {
             header: "Zaloguj",
@@ -52,12 +56,27 @@ export const languages: { [key: string]: any } = {
             ,
             remember: "Zapamiętaj"
         },
-        calendar: {
-            sidepanel: {
-                layout: "Układ strony",
-                dailysummary: "Dzienne podsumowanie",
-                calendar: "Kalendarz"
-            },
+        sidepanel: {
+            layout: "Układ strony",
+            dailysummary: "Dzienne podsumowanie",
+            calendar: "Kalendarz",
+            months: [
+                "Styczeń",
+                "Luty",
+                "Marzec",
+                "Kwiecień",
+                "Maj",
+                "Czerwiec",
+                "Lipiec",
+                "Sierpień",
+                "Wrzesień",
+                "Październik",
+                "Listopad",
+                "Grudnień"
+            ]
+        },
+        calendartable: {
+
             short_days: [
                 "Pon",
                 "Wto",
@@ -76,27 +95,14 @@ export const languages: { [key: string]: any } = {
                 "Sobota",
                 "Niedziela"
             ],
-            months: [
-                "Styczeń",
-                "Luty",
-                "Marzec",
-                "Kwiecień",
-                "Maj",
-                "Czerwiec",
-                "Lipiec",
-                "Sierpień",
-                "Wrzesień",
-                "Październik",
-                "Listopad",
-                "Grudnień"
-            ]
+
 
         }
     },
     en: {
         menudrawer: {
             home: "Strona Gowna",
-            training: "Training",
+            workouts: "Trainings",
             history: "History",
             plan: "Training Plan",
             statistic: "Statistics",
@@ -123,12 +129,27 @@ export const languages: { [key: string]: any } = {
             },
             remember: "Stay logged in"
         },
-        calendar: {
-            sidepanel: {
-                layout: "Layout",
-                dailysummary: "",
-                calendar: ""
-            },
+        sidepanel: {
+            layout: "Layout",
+            dailysummary: "",
+            calendar: "",
+            months: [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        calendartable: {
+
             short_days: [
                 "",
                 "",
@@ -147,20 +168,7 @@ export const languages: { [key: string]: any } = {
                 "",
                 ""
             ],
-            months: [
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
-            ]
+
 
         }
     }

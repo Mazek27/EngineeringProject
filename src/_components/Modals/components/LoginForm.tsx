@@ -32,7 +32,7 @@ const styles = (theme : any)=> ({
     }
 });
 
-
+@withTranslation()
 export class LoginForm  extends React.Component<IProps, any>  {
     state = {
         login: "",
@@ -66,6 +66,7 @@ export class LoginForm  extends React.Component<IProps, any>  {
                         id="outlined-name"
                         label={lang.password}
                         className={classes.textField}
+                        type={"password"}
                         value={this.state.password}
                         onChange={this.handleChange('password')}
                         margin="normal"
@@ -89,4 +90,4 @@ function mapDispatchToProps(dispatch : Dispatch<actions.LoginFormAction>){
     }
 }
 //@ts-ignore
-export default connect(null,mapDispatchToProps)(withStyles(styles)(withTranslation(LoginForm)))
+export default connect(null,mapDispatchToProps)(withStyles(styles)(LoginForm))

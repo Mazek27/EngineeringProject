@@ -9,6 +9,21 @@ interface IProps {
     // children : any[]
 }
 
+export const isPending : IResponseStatus = {
+    isPending : true,
+    isRejected : false
+}
+
+export const isRejected : IResponseStatus = {
+    isPending : false,
+    isRejected : true
+}
+
+export const isFulfilled : IResponseStatus = {
+    isPending : false,
+    isRejected : false
+}
+
 
 
 export class Response extends React.Component<IProps, {}> {

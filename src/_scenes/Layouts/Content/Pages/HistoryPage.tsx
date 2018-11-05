@@ -20,6 +20,7 @@ const style = (theme: any) => ({
     },
 });
 
+@withTranslation()
 export class HistoryPage extends React.Component<IProps, any> {
     constructor(props : IProps){
         super(props);
@@ -82,5 +83,3 @@ export class HistoryPage extends React.Component<IProps, any> {
     }
 
 }
-//@ts-ignore
-export default withTranslation(HistoryPage)

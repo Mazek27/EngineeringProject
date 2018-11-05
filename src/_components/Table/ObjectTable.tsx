@@ -6,18 +6,8 @@ import TableRow from "@material-ui/core/es/TableRow/TableRow";
 import TableHead from "@material-ui/core/es/TableHead/TableHead";
 import TableCell from "@material-ui/core/es/TableCell/TableCell";
 import TableBody from "@material-ui/core/es/TableBody/TableBody";
-import {Cell} from "../Calendar/components/Cell";
 
-const styles = (theme: any) => ({
-    root: {
-        width: '100%',
-        marginTop: theme.spacing.unit * 3,
-        overflowX: 'auto',
-    },
-    table: {
-        minWidth: 700,
-    },
-});
+
 
 export interface IProps {
     classes : any
@@ -48,8 +38,8 @@ class ObjectTable extends React.Component<IProps, IState> {
                         {body.map((row, index) => (
                             <TableRow key={index}>
                                 {Object.values(row).map((cell: any) => (
-                                    <TableCell>
-                                        <Cell dataSet={cell}/>
+                                    <TableCell className={classes.cell}>
+                                        {cell}
                                     </TableCell>
                                 ))}
                             </TableRow>
@@ -60,6 +50,22 @@ class ObjectTable extends React.Component<IProps, IState> {
         )
     }
 }
-
+const styles = (theme: any) => ({
+    root: {
+        width: '100%',
+        marginTop: theme.spacing.unit * 3,
+        overflowX: 'auto',
+    },
+    table: {
+        tableLayout: "fixed",
+        minWidth: 700,
+    },
+    cell:{
+        padding: 4,
+        '&:last-child':{
+            padding: 4
+        }
+    }
+});
 //@ts-ignore
 export default withStyles(styles)(ObjectTable);

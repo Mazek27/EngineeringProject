@@ -15,11 +15,12 @@ export namespace StoreState {
         isOpen : boolean
     }
 
-    export type Calendar = {
+    export type Workouts = {
         responseStatus : IResponseStatus
         dsChecked : boolean
         currentDate : Date
         data : {[key : string]: any}[]
+        selectedWorkout : any
     }
 
 
@@ -27,7 +28,7 @@ export namespace StoreState {
         session : Session
         menuDrawer : MenuDrawer
         lang : Language
-        calendar : Calendar
+        workouts : Workouts
         routing : any
     }
 

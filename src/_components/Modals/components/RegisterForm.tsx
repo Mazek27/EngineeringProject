@@ -51,7 +51,7 @@ function validate(password : string){
     ];
 }
 
-
+@withTranslation()
 class RegisterForm extends React.Component<IProps, any> {
 
     username : any;
@@ -154,4 +154,4 @@ class RegisterForm extends React.Component<IProps, any> {
 
 }
 //@ts-ignore
-export default withStyles(styles)(withTranslation(RegisterForm))
+export default withStyles(styles)(RegisterForm)
