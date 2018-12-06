@@ -97,7 +97,7 @@ export class MapContainer extends React.Component<IProps,{}> {
         // const map = L.map("map").setView([52.013814, 23.106169], 25);
         //
         //     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        //         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        //         attribution: 'WorkoutMap data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         //         maxZoom: 18,
         //         id: 'mapbox.streets',
         //         accessToken: 'your.mapbox.access.token'
@@ -121,16 +121,16 @@ export class MapContainer extends React.Component<IProps,{}> {
             lng: 52.09,
         }
 
-        // const map = new Map
+        // const map = new WorkoutMap
 
         return <div id={"map"} style={styles}>
 
         </div>
-        // return <Map center={position} zoom={this.state.zoom} style={{height:"250px",width:"400px",position:"relative"}}>
+        // return <WorkoutMap center={position} zoom={this.state.zoom} style={{height:"250px",width:"400px",position:"relative"}}>
         //         <TileLayer
         //             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         //             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
         //         />
-        //     </Map>
+        //     </WorkoutMap>
     }
 }

@@ -7,7 +7,6 @@ interface IProps{
 }
 
 export const LanguageChanger =({currentLang, languageChange} : IProps) => {
-    console.log();
     return <select value={currentLang} onChange={(e) => languageChange(e)}>
         {Object.keys(languages).map((item : any) => {
             return <option key={item} value={item}>{item}</option>

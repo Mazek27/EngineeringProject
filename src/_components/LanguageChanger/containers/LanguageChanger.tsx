@@ -1,6 +1,7 @@
-import {connect, Dispatch} from "react-redux";
+import {connect} from "react-redux";
 import {LanguageChanger} from "../components/LanguageChanger";
 import * as actions from "../../LanguageChanger/actions/LanguageChangerAction";
+import {Dispatch} from "redux";
 
 function mapStateToProps({session} : any) {
     return {

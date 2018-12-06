@@ -1,17 +1,21 @@
 import {combineReducers} from "redux";
 import {StoreState} from "./StoreStateTypes";
-import {navBar} from "../_scenes/Layouts/Header/reducers/navBar";
-import {routerReducer} from "react-router-redux";
-import {loginModal} from "../_components/Modals/reducers/LoginModal";
+import {connectRouter} from "connected-react-router"
 import {language} from "../_components/LanguageChanger/reducers/LanguageChanger";
-import {session} from "./session.reducer";
-import {sidePanel} from "../_components/Calendar/reducers/SidePanel.reducer";
+import {session} from "../_services/session/session.reducer";
+import {CalendarReducer} from "../_components/Calendar/reducers/CalendarReducer";
+import {menuDrawerReducer} from "../_components/Menu/reducers/MenuDrawerReducer";
 
-export const rootReducer = combineReducers<StoreState.All>({
+export const rootReducer = (history : any) => combineReducers<StoreState.All>({
     session,
-    navBar,
-    loginModal,
-    calendar : sidePanel,
+    workouts : CalendarReducer,
+    menuDrawer : menuDrawerReducer,
     lang : language,
-    routing: routerReducer
+    router: connectRouter(history)
 });
+
+export interface withRouterProps {
+    history : any,
+    location: any,
+    match : any
+}

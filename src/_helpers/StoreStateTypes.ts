@@ -2,40 +2,34 @@ import {IResponseStatus} from "./constant";
 
 export namespace StoreState {
 
-    export type NavBar = {
-        toggle : () => void
-        isCollapsed : boolean
-    }
-
     export type Session = {
         user : any
         isLogged : any
-    }
-
-    export type LoginModal = {
-        username : string
-        password : string
-        isOpen : boolean
     }
 
     export type Language = {
         lang : any
     }
 
-    export type Calendar = {
+    export type MenuDrawer = {
+        isOpen : boolean
+    }
+
+    export type Workouts = {
         responseStatus : IResponseStatus
         dsChecked : boolean
         currentDate : Date
         data : {[key : string]: any}[]
+        selectedWorkout : any
     }
 
 
     export type All = {
-        navBar : NavBar
         session : Session
-        loginModal : LoginModal
-        translate : Language
-        calendar : Calendar
+        menuDrawer : MenuDrawer
+        lang : Language
+        workouts : Workouts
+        router : any
     }
 
 }
