@@ -34,10 +34,10 @@ function execute(requestPromise: Promise<any>): Promise<any> {
         .then(response => {
             return Promise.resolve(response.data)
         })
-        .catch(({response})=>{
-            if(response.status == 401) {
-                store.dispatch(logout())
-            }
+        .catch((error)=>{
+            // if(error.response.status == 401) {
+            //     store.dispatch(logout())
+            // }
         })
 
 }

@@ -4,18 +4,20 @@ import {connect} from "react-redux";
 import {withTranslation} from "../../../_helpers/WithTranslate";
 import {Dispatch} from "redux";
 import * as actions from "../actions/MenuDrawerActions";
-import {NavLink} from "react-router-dom";
 import List from "@material-ui/core/es/List/List";
 import ListItem from "@material-ui/core/es/ListItem/ListItem";
 import ListItemText from "@material-ui/core/es/ListItemText/ListItemText";
 import Divider from "@material-ui/core/es/Divider/Divider";
 import "./style.scss"
+import {Redirect, withRouter} from "react-router";
+import {Link} from "react-router-dom";
 
 
 interface IProps{
     lang?: any
     pagesToolBarIsOpen : boolean
     handleDrawerClose : () => void
+    history : any
 }
 
 @withTranslation()
@@ -39,9 +41,9 @@ class MenuDrawer extends React.Component<IProps, any>{
             }
             return (
                 <ListItem button key={index}>
-                    <NavLink to={`/${value}`}>
+                    <a onClick={()=> this.props.history.push(`/${value}`)}>
                         <ListItemText primary={lang[value]}/>
-                    </NavLink>
+                    </a>
                 </ListItem>
             )
         })
@@ -76,4 +78,4 @@ function mapDispachToProps(dispatch : Dispatch<actions.MenuDrawerActions>){
     }
 }
 //@ts-ignore
-export default connect(mapStateToProps, mapDispachToProps)(MenuDrawer)
+export default connect(mapStateToProps, mapDispachToProps)(withRouter(MenuDrawer))

@@ -21,7 +21,7 @@ export interface IState {
 
 class ObjectTable extends React.Component<IProps, IState> {
     render(){
-        let {classes, head, body} = this.props;
+        let {classes, head} = this.props;
 
         return (
             <Paper className={classes.root}>
@@ -35,15 +35,7 @@ class ObjectTable extends React.Component<IProps, IState> {
 
                     </TableHead>
                     <TableBody>
-                        {body.map((row, index) => (
-                            <TableRow key={index}>
-                                {Object.values(row).map((cell: any) => (
-                                    <TableCell className={classes.cell}>
-                                        {cell}
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-                        ))}
+                        {this.props.children}
                     </TableBody>
                 </Table>
             </Paper>

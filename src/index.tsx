@@ -3,19 +3,20 @@ import * as ReactDOM from "react-dom";
 import * as React from "react";
 import {Router, Route} from "react-router";
 import {Provider} from "react-redux";
-import {store} from "./_helpers/store";
+import {store, history} from "./_helpers/store";
 import MainLayout from "./_scenes/Layouts/MainLayout.container";
 
 import "./index.scss"
 import {languages} from "./_helpers/translate";
+import {ConnectedRouter} from "connected-react-router";
 
-const history = createHashHistory();
+
 
 ReactDOM.render(
         <Provider store={store}>
-            <Router history={history}>
+            <ConnectedRouter history={history}>
                 <Route path={'/'} component={MainLayout}/>
-            </Router>
+            </ConnectedRouter>
         </Provider>,
     document.getElementById("root")
 );

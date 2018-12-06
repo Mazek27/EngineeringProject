@@ -12,12 +12,19 @@ const initState : StoreState.Workouts = {
     selectedWorkout : null
 };
 
-export const CalendarReducer = (state : StoreState.Workouts, action : any) : StoreState.Workouts => {
-    if (typeof state === 'undefined') {
-        return initState;
-    }
+export const CalendarReducer = (state : StoreState.Workouts = initState , action : any) : StoreState.Workouts => {
+    // if (typeof state === 'undefined') {
+    //     return initState;
+    // }
 
     switch (action.type) {
+        case "LOAD_WORKOUT_FULFILLED":
+            return {
+                ...state,
+                selectedWorkout: action.payload.selectedWorkout,
+                data: action.payload.data,
+                currentDate: new Date(action.payload.currentData)
+            }
         case "SELECT_WORKOUT_FULFILLED":
             return {
                 ...state,

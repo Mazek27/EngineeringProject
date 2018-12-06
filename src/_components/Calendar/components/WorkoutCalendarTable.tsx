@@ -7,9 +7,11 @@ import ObjectTable from "../../Table/ObjectTable";
 import Cell from "./Cell";
 import {withTranslation} from "../../../_helpers/WithTranslate";
 import {Dispatch} from "redux";
-import * as actions from "../actions/CalendarActions";
+import * as actions from "../actions/WorkoutActions";
 import {store} from "../../../_helpers/store";
 import {connect} from "react-redux";
+import TableRow from "@material-ui/core/es/TableRow/TableRow";
+import TableCell from "@material-ui/core/es/TableCell/TableCell";
 
 interface IProps{
     lang? : any;
@@ -22,9 +24,12 @@ interface IProps{
 }
 
 const styles = (theme : any)=>  ({
-    // control: {
-    //     padding: theme.spacing.unit * 2
-    // }
+    cell : {
+        padding : 0,
+        '&:last-child': {
+            paddingRight : 0
+        }
+    }
 })
 
 @withTranslation()
@@ -41,10 +46,10 @@ class CalendarTable extends React.Component<IProps,any>{
 
     generateDays(data : any){
         let tmp = [];
-        let components = this.generateDaysElements(data);
+        // let components = this.generateDaysElements(data);
 
         for(let i =0; i < 42; i+=7){
-            tmp.push(components.slice(i, i+7))
+            tmp.push(data.slice(i, i+7))
         }
 
         return tmp;
@@ -62,10 +67,17 @@ class CalendarTable extends React.Component<IProps,any>{
         let {lang, data, responseStatus, prevMonth, nextMonth, classes} = this.props;
         let displayed_days = this.generateDays(data);
 
-
-
         return(
             <ObjectTable body={displayed_days} head={lang.short_days}>
+                {displayed_days.map((row, index) => (
+                    <TableRow>
+                        {Object.values(row).map((cellData: any) => (
+                            <TableCell className={classes.cell}>
+                                <Cell dataSet={cellData}/>
+                            </TableCell>
+                        ))}
+                    </TableRow>
+                ))}
             </ObjectTable>
         )
     }
@@ -78,7 +90,7 @@ function mapStateToProps({workouts} : any){
     }
 }
 
-function mapDispatchToProps(dispatch : Dispatch<actions.CalendarActions>){
+function mapDispatchToProps(dispatch : Dispatch<actions.WorkoutActions>){
     let date = store.getState().workouts.currentDate
 
     return {

@@ -1,7 +1,6 @@
 export const languages: { [key: string]: any } = {
     pl: {
         historypage: {
-            id: "id",
             type: "Typ",
             date: "Data",
             distance: "Dystans",
@@ -27,12 +26,14 @@ export const languages: { [key: string]: any } = {
             myaccount: "Moje Konto"
         },
         loginform: {
-            header: "Zaloguj",
+            loginHeader: "Zaloguj",
+            restorePasswordHeader: "Przypomnij Hasło",
             username: "Nazwa Użytkownika",
             password: "Hasło",
             action: {
                 login: "Zaloguj",
-                cancel: "Anuluj"
+                cancel: "Anuluj",
+                send: "Wyślij"
             },
             feedback: {
                 username: "To pole nie może być puste",

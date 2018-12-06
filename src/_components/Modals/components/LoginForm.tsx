@@ -16,6 +16,7 @@ interface IProps {
     lang : any
     classes : any
     authenticate: (login : string, pass : string) => void
+    restorePassword : (login : string) => void
 }
 
 const styles = (theme : any)=> ({
@@ -37,7 +38,8 @@ export class LoginForm  extends React.Component<IProps, any>  {
     state = {
         login: "",
         password: "",
-        remember: ""
+        remember: "",
+        rememberPasswordForm : false
     }
 
     handleChange = (name :string) => (event : any)=> {
@@ -47,46 +49,73 @@ export class LoginForm  extends React.Component<IProps, any>  {
     }
 
     render(){
-        let {lang, classes, authenticate} = this.props;
-        return (
-            <div className={classes.paper} id={'modal'}>
-                <Typography variant="title" id="modal-title">
-                    {lang.header}
-                </Typography>
-                <FormGroup row={false}>
-                    <TextField
-                        id="outlined-name"
-                        label={lang.username}
-                        className={classes.textField}
-                        value={this.state.login}
-                        onChange={this.handleChange('login')}
-                        margin="normal"
-                    />
-                    <TextField
-                        id="outlined-name"
-                        label={lang.password}
-                        className={classes.textField}
-                        type={"password"}
-                        value={this.state.password}
-                        onChange={this.handleChange('password')}
-                        margin="normal"
-                    />
-                    <FormGroup row={true}>
-                        <FormControlLabel className={classes.bottom}
-                            control={<Checkbox checked={this.state.remember} onChange={this.handleChange('remember')}/>}
-                            label={lang.remember}
+        let {lang, classes, authenticate, restorePassword} = this.props;
+
+        if(!this.state.rememberPasswordForm){
+            return (
+
+                <div className={classes.paper} id={'modal'}>
+                    <Typography variant="title" id="modal-title">
+                        {lang.loginHeader}
+                    </Typography>
+                    <FormGroup row={false}>
+                        <TextField
+                            id="outlined-name"
+                            label={lang.username}
+                            className={classes.textField}
+                            value={this.state.login}
+                            onChange={this.handleChange('login')}
+                            margin="normal"
                         />
-                        <Button size={"small"} onClick={() => authenticate(this.state.login, this.state.password)}>{lang.action.login}</Button>
+                        <TextField
+                            id="outlined-name"
+                            label={lang.password}
+                            className={classes.textField}
+                            type={"password"}
+                            value={this.state.password}
+                            onChange={this.handleChange('password')}
+                            margin="normal"
+                        />
+                        <div onClick={(e) => this.setState({rememberPasswordForm : true})}>{"Przypomnij Hasło"}</div>
+                        <FormGroup row={true}>
+                            <FormControlLabel className={classes.bottom}
+                                              control={<Checkbox checked={this.state.remember} onChange={this.handleChange('remember')}/>}
+                                              label={lang.remember}
+                            />
+                            <Button size={"small"} onClick={() => authenticate(this.state.login, this.state.password)}>{lang.action.login}</Button>
+                        </FormGroup>
                     </FormGroup>
-                </FormGroup>
-            </div>
-        )
+                </div>
+            )
+        } else {
+            return (
+                <div className={classes.paper} id={'modal'}>
+                    <Typography variant="title" id="modal-title">
+                        {lang.restorePasswordHeader}
+                    </Typography>
+                    <FormGroup row={true}>
+                        <TextField
+                            id="outlined-name"
+                            label={lang.username}
+                            className={classes.textField}
+                            value={this.state.login}
+                            onChange={this.handleChange('login')}
+                            margin="normal"
+                        />
+                        <Button size={"small"} onClick={() => restorePassword(this.state.login)}>{lang.action.send}</Button>
+                    </FormGroup>
+                </div>
+            )
+        }
+
+
     }
 }
 
 function mapDispatchToProps(dispatch : Dispatch<actions.LoginFormAction>){
     return {
-        authenticate : (login : string, pass : string) => dispatch(actions.getAuthenticate(login, pass))
+        authenticate : (login : string, pass : string) => dispatch(actions.getAuthenticate(login, pass)),
+        restorePassword : (login : string) => dispatch(actions.restorePassword(login))
     }
 }
 //@ts-ignore

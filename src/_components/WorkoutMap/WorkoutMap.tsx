@@ -3,6 +3,7 @@ import {Map as LeafletMap, Polyline, TileLayer} from "react-leaflet";
 import {LatLng, LatLngBounds} from "leaflet";
 import {requestGet} from "../../_services/endpointConnection";
 import {connect} from "react-redux";
+import {Dispatch} from "redux";
 
 export interface IProps {
     workoutId : number,
@@ -38,7 +39,9 @@ class WorkoutMap extends React.Component<IProps, any>{
 
 
     render(){
+        console.log(this.props.boundingBox , this.props.route , this.props.workoutId)
         if(this.props.boundingBox && this.props.route && this.props.workoutId) {
+            console.log("map")
 
             return (
                 <LeafletMap style={{height: '400px', width: '100%'}}
@@ -59,7 +62,8 @@ class WorkoutMap extends React.Component<IProps, any>{
     }
 }
 
-function mapStateToProps({workouts} : any){
+function mapStateToProps({workouts, router} : any, ownProps : any){
+    console.log(router)
     if(workouts.selectedWorkout){
         return {
             workoutId : workouts.selectedWorkout.id,

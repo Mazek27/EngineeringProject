@@ -5,6 +5,11 @@ interface SelectWorkout {
     payload : Promise<any>
 }
 
+interface LoadWorkout {
+    type : "LOAD_WORKOUT"
+    payload : Promise<any>
+}
+
 interface DailySummaryToggleChange {
     type : "DAILY_SUMMARY_TOGGLE_CHANGE"
 }
@@ -15,12 +20,29 @@ interface DateWorkoutCalendarChange {
     date : Date
 }
 
-export type CalendarActions = SelectWorkout | DailySummaryToggleChange | DateWorkoutCalendarChange;
+export type WorkoutActions = SelectWorkout | DailySummaryToggleChange | DateWorkoutCalendarChange | LoadWorkout;
 
 export function selectWorkout(workoutId : number) : SelectWorkout {
     return {
         type: "SELECT_WORKOUT",
         payload : requestGet(`trainings/${workoutId}`)
+    }
+}
+
+export function loadWorkout(workoutId : number) : LoadWorkout {
+    return {
+        type: "LOAD_WORKOUT",
+        payload : requestGet(`trainings/${workoutId}`).then(response =>
+            requestPost('trainings', JSON.stringify({
+                currentDate : response[0].trainingTime
+            })).then(value => {
+                return {
+                    data : value.data,
+                    currentData : value.date,
+                    selectedWorkout : response[0]
+                }
+            })
+        )
     }
 }
 

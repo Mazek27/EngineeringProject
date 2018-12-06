@@ -29,7 +29,7 @@ export namespace StoreState {
         menuDrawer : MenuDrawer
         lang : Language
         workouts : Workouts
-        routing : any
+        router : any
     }
 
 }
